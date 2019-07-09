@@ -13,6 +13,8 @@ The client side of the website will be built in React using create-react-app. Th
 
 ## Dataflow diagram
 
+## Project plan and effort estimation
+
 Must have
 Desirable
 Optional
