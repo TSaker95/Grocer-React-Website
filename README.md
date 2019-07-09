@@ -11,6 +11,8 @@ The client side of the website will be built in React using create-react-app. Th
 - Store owners
 - Website visitors/potential customers
 
+## Dataflow diagram
+
 Must have
 Desirable
 Optional
