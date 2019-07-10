@@ -1,7 +1,7 @@
 const router = require("express").Router();
 let Product = require("../models/product.model"); // Import use model
 
-// @route GET /products
+// @route GET api/products
 // @desc get all products
 router.route("/").get((req, res) => {
   Product.find()
@@ -9,7 +9,7 @@ router.route("/").get((req, res) => {
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
-// @route POST /products/add
+// @route POST api/products/add
 // @desc add new products
 router.route("/add").post((req, res) => {
   const name = req.body.name;
@@ -27,7 +27,7 @@ router.route("/add").post((req, res) => {
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
-// @route GET /products/:id
+// @route GET api/products/:id
 // @desc get product by id
 router.route("/:id").get((req, res) => {
   Product.findById(req.params.id)
@@ -35,7 +35,7 @@ router.route("/:id").get((req, res) => {
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
-// @route   DELETE /products
+// @route   DELETE api/products
 // @desc    Delete an item
 router.delete("/:id", (req, res) => {
   Product.findById(req.params.id)

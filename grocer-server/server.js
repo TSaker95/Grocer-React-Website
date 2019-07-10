@@ -23,7 +23,9 @@ connection.once("open", () => {
 
 // Route definitions
 const productsRouter = require("./routes/products");
-app.use("/products", productsRouter);
+app.use("/api/products", productsRouter);
+const specialsRouter = require("./routes/specials");
+app.use("/api/specials", specialsRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
