@@ -6,7 +6,7 @@
 - yarn build (to build files for production mode)
 - yarn start (to run app in production mode)
 
-In dev mode, the frontend will run on localhost:3000 and the backend on localhost:8642. In production, the backend will serve the frontend scripts directly, so go to localhost:8642 to see the results.
+In dev mode, the frontend will run on localhost:3000 and the backend on localhost:4000. In production, the backend will serve the prebuilt frontend to the browser, so go to localhost:4000 to see the results.
 
 ## Problem definition and solution
 
