@@ -10,14 +10,14 @@ const port = process.env.PORT || 4000;
 // Middleware
 app.use(express.json());
 
-// const uri = process.env.MONGO_URI;
-// mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+const uri = process.env.MONGODB_URI;
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
 
-// // Connect to database
-// const connection = mongoose.connection;
-// connection.once("open", () => {
-//   console.log("Successfully connected to MongoDB");
-// });
+// Connect to database
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log("Successfully connected to MongoDB");
+});
 
 // Route definitions
 app.use(express.static('dist'));
