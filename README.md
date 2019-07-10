@@ -1,3 +1,13 @@
+## Use instructions
+
+- Download or clone this repo to your local machine
+- yarn install
+- yarn dev (to run app in development mode)
+- yarn build (to build files for production mode)
+- yarn start (to run app in production mode)
+
+In dev mode, the frontend will run on localhost:3000 and the backend on localhost:8642. In production, the backend will serve the frontend scripts directly, so go to localhost:8642 to see the results.
+
 ## Problem definition and solution
 
 Hillsdon Grocer currently has a simple, static website. While this fulfills most of their needs, they would like something more dynamic allowing them to better publicise products on sale. Ideally, they would like to be able to fill out a title, description and sale price and have it automatically displayed on their website.
