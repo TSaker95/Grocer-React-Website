@@ -11,7 +11,7 @@ router.route("/").get((req, res) => {
 
 // @route POST api/products/add
 // @desc add new products
-router.route("/add").post((req, res) => {
+router.route("/").post((req, res) => {
   const name = req.body.name;
   const description = req.body.description;
 

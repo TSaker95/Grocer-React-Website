@@ -11,7 +11,7 @@ router.route("/").get((req, res) => {
 
 // @route POST api/specials/add
 // @desc add new specials
-router.route("/add").post((req, res) => {
+router.route("/").post((req, res) => {
   const productId = req.body.productId;
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
