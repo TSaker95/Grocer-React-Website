@@ -35,6 +35,12 @@ router.route("/:id").get((req, res) => {
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
-// @route
+// @route   DELETE /products
+// @desc    Delete an item
+router.delete("/:id", (req, res) => {
+  Product.findById(req.params.id)
+    .then(product => product.remove().then(() => res.json({ success: true })))
+    .catch(err => res.status(404).json({ success: false }));
+});
 
 module.exports = router;
