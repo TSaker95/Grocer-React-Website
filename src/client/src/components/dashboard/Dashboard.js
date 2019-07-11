@@ -12,7 +12,7 @@ export default function Dashboard() {
     api
       .get("api/products")
       .then(res => {
-        setProducts(...res.data);
+        setProducts([...res.data]);
       })
       .catch(err => console.log(`Error: ${err}`));
 
@@ -22,15 +22,13 @@ export default function Dashboard() {
         setSpecials([...res.data]);
       })
       .catch(err => console.log(`Error: ${err}`));
-
-    console.log(products, specials);
   }, []);
 
   return (
     <div className="container">
       <DashboardNavbar />
-      {/* <SpecialsList specials={state.specials ? state.specials : []} />
-      <ProductList products={state.products ? state.products : []} /> */}
+      <SpecialsList specials={specials ? specials : []} />
+      <ProductList products={products ? products : []} />
     </div>
   );
 }

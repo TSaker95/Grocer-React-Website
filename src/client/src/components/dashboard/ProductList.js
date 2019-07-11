@@ -7,7 +7,7 @@ export default function ProductList(props) {
       <h3>Products</h3>
       <div className="products-list">
         {props.products.map(product => {
-          return <ProductItem key={product.id} />;
+          return <ProductItem key={product._id} item={product} />;
         })}
       </div>
     </div>
