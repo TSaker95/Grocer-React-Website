@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const cors = require("cors");
 
 require("dotenv").config();
 
@@ -8,6 +9,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 const uri = process.env.MONGODB_URI;
@@ -20,7 +22,7 @@ connection.once("open", () => {
 });
 
 // Route definitions
-app.use(express.static('dist'));
+app.use(express.static("dist"));
 
 const productsRouter = require("./routes/products");
 app.use("/api/products", productsRouter);
@@ -28,7 +30,7 @@ const specialsRouter = require("./routes/specials");
 app.use("/api/specials", specialsRouter);
 
 // Dummy route for databaseless testing
-app.get('/api/getMessage', (req, res) => res.send({ message: "Dummy thicc" }));
+app.get("/api/getMessage", (req, res) => res.send({ message: "Dummy thicc" }));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
