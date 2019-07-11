@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
+import { api } from "../api";
 
 export default function Dashboard() {
   const [state, setState] = useState({});
 
   useEffect(() => {
-    console.log("mounted");
-
-    fetch("/api/getMessage")
-      .then(res => res.json())
-      .then(res => setState({ message: res.message }));
-
-    console.log(state);
+    api
+      .get("api/products")
+      .then(result => {
+        setState({ ...state, ...result.data });
+      })
+      .catch(err => console.log(`Error: ${err}`));
   }, []);
+
   return (
     <div>
       <p>The server says {state.message}</p>
-      <button onClick={() => console.log("products will go here")}>
+      <button onClick={() => console.log(state)}>
         Console log all products
       </button>
     </div>
