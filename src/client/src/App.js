@@ -10,12 +10,12 @@ import Dashboard from "./components/dashboard/Dashboard";
 function App() {
   return (
     <Router>
-      <div className="container">
+      <React.Fragment>
         <br />
         <Route path="/" exact component={Main} />
         <Route path="/admin" exact component={Login} />
         <Route path="/dashboard" exact component={Dashboard} />
-      </div>
+      </React.Fragment>
     </Router>
   );
 }

@@ -1,11 +1,15 @@
 import React from "react";
+import ProductItem from "./ProductItem";
 
 export default function ProductList(props) {
-  console.log(props);
   return (
-    <div>
+    <div className="products-container">
       <h3>Products</h3>
-      {props.products.length && <p>wow</p>}
+      <div className="products-list">
+        {props.products.map(product => {
+          return <ProductItem key={product.id} />;
+        })}
+      </div>
     </div>
   );
 }

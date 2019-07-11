@@ -10,15 +10,17 @@ export default function Dashboard() {
   useEffect(() => {
     api
       .get("api/products")
-      .then(result => {
-        setState({ products: [...result.data] });
+      .then(res => {
+        setState({ products: [...res.data] });
       })
       .catch(err => console.log(`Error: ${err}`));
 
     api
       .get("/api/specials")
       .then(res => {
-        setState({ specials: [...res.data] });
+        let prevState = state;
+        console.log(prevState);
+        setState({ ...prevState, specials: [...res.data] });
       })
       .catch(err => console.log(`Error: ${err}`));
   }, []);
