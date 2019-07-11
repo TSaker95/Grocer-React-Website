@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 
 require("dotenv").config();
@@ -31,6 +32,12 @@ app.use("/api/specials", specialsRouter);
 
 // Dummy route for databaseless testing
 app.get("/api/getMessage", (req, res) => res.send({ message: "Dummy thicc" }));
+
+// Fallback route: if no server-route matches, just send the react app and let
+// it deal with the route using react-router
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
