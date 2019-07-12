@@ -1,22 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
+import "./styles/styles.css";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 import Main from "./components/Main";
 import Login from "./components/Login";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
   return (
     <Router>
-      <div className="container">
-        <Navbar />
+      <React.Fragment>
         <br />
         <Route path="/" exact component={Main} />
         <Route path="/admin" exact component={Login} />
         <Route path="/dashboard" exact component={Dashboard} />
-      </div>
+      </React.Fragment>
     </Router>
   );
 }
