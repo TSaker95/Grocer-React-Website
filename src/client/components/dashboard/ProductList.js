@@ -22,24 +22,3 @@ export default function ProductList(props) {
     </div>
   );
 }
-
-{
-  /* // <table className="products-table table"> */
-}
-{
-  /* <thead>
-            <tr>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Last sale</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {props.products.map(product => (
-              <ProductItem item={product} />
-            ))}
-          </tbody>
-        </table> */
-}
