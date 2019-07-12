@@ -8,7 +8,7 @@ export default function ProductItem(props) {
         <img src={placeholder} alt="placeholder" />
       </div>
       <p>{props.item.name}</p>
-      <p>$5.50</p>
+      <p>{props.item.price}</p>
       <p>23/02/1903</p>
       <p>Actions go here</p>
     </div>
