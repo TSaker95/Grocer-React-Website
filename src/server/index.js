@@ -34,8 +34,8 @@ const specialsRouter = require("./routes/specials");
 app.use("/api/specials", checkAuth, specialsRouter);
 const usersRouter = require("./routes/users");
 app.use("/api/users", usersRouter);
-
-app.get("/api/checkAuth", checkAuth, (req, res) => res.sendStatus(200));
+const authRouter = require("./routes/auth");
+app.use("/api/auth", authRouter);
 
 // Dummy route for databaseless testing
 app.get("/api/getMessage", (req, res) => res.send({ message: "Dummy thicc" }));
