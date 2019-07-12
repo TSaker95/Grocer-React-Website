@@ -60,11 +60,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.5rem 0;
+        padding: 1rem 0;
 
         p,
         .product-image {
-            width: 80%;
+            width: 50%;
             text-align: left;
         }
     }
@@ -73,8 +73,24 @@
 
 // Specials list
 
+
 .specials-container {
     margin-top: 6rem;
+
+    .specials-headings {
+
+        h5:first-child {
+            width: 100%;
+        }
+    }
+
+    .specials-list-content {
+        .specials-item {
+            p:first-child {
+                width: 100%;
+            }
+        }
+    }
 }
 
 // Products list

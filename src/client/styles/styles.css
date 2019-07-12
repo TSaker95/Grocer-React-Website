@@ -76,17 +76,25 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
 }
 
 .items-list .list-row p,
 .items-list .list-row .product-image {
-  width: 80%;
+  width: 50%;
   text-align: left;
 }
 
 .specials-container {
   margin-top: 6rem;
+}
+
+.specials-container .specials-headings h5:first-child {
+  width: 100%;
+}
+
+.specials-container .specials-list-content .specials-item p:first-child {
+  width: 100%;
 }
 
 .products-container {

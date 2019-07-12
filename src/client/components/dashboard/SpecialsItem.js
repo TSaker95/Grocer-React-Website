@@ -2,19 +2,17 @@ import React, { useEffect, useState } from "react";
 import { api } from "../../api";
 
 export default function SpecialsItem(props) {
-  const [product, setProduct] = useState({});
-  const findItemById = itemId => {
-    // Find the item from the database
+  const parseDate = date => {
+    return date.split("T")[0];
   };
 
   return (
-    // const item = findItemById()
     <div className="specials-item list-row">
       <p>{props.product.name}</p>
-      <p>{props.product.price}</p>
+      <p>Normal price</p>
       <p>Sale price</p>
-      <p>{props.item.startDate.toLocaleString()}</p>
-      <p>{props.item.endDate.toLocaleString()}</p>
+      <p>{parseDate(props.item.startDate)}</p>
+      <p>{parseDate(props.item.endDate)}</p>
       <p>Actions go here</p>
     </div>
   );

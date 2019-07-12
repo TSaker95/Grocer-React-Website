@@ -3,7 +3,7 @@ import SpecialsItem from "./SpecialsItem";
 
 export default function SpecialsList(props) {
   return (
-    <div className="products-container">
+    <div className="specials-container">
       <h3>Specials ({props.specials.length})</h3>
       <div className="specials-list items-list">
         <div className="headings specials-headings">
