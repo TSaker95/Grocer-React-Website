@@ -76,6 +76,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 1.5rem 0;
 }
 
 .items-list .list-row p,
@@ -86,10 +87,6 @@
 
 .specials-container {
   margin-top: 6rem;
-}
-
-.specials-container .specials-item {
-  padding: 1.5rem 0;
 }
 
 .products-container {

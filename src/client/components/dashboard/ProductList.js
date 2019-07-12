@@ -15,7 +15,7 @@ export default function ProductList(props) {
         </div>
         <div className="list-content products-list-content">
           {props.products.map(product => (
-            <ProductItem item={product} />
+            <ProductItem item={product} key={product._id} />
           ))}
         </div>
       </div>

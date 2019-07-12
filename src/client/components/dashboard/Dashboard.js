@@ -22,12 +22,14 @@ export default function Dashboard() {
         setSpecials([...res.data]);
       })
       .catch(err => console.log(`Error: ${err}`));
+
+    return () => {};
   }, []);
 
   return (
     <div className="container">
       <DashboardNavbar />
-      <SpecialsList specials={specials ? specials : []} />
+      <SpecialsList specials={specials ? specials : []} products={products} />
       <ProductList products={products ? products : []} />
     </div>
   );

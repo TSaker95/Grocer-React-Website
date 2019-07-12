@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../api";
 
 export default function SpecialsItem(props) {
+  const [product, setProduct] = useState({});
   const findItemById = itemId => {
     // Find the item from the database
   };
@@ -8,11 +10,11 @@ export default function SpecialsItem(props) {
   return (
     // const item = findItemById()
     <div className="specials-item list-row">
-      <p>{props.item._id}</p>
-      <p>Item normal price</p>
-      <p>Item sale price</p>
-      <p>23/02/1903</p>
-      <p>23/02/2903</p>
+      <p>{props.product.name}</p>
+      <p>{props.product.price}</p>
+      <p>Sale price</p>
+      <p>{props.item.startDate.toLocaleString()}</p>
+      <p>{props.item.endDate.toLocaleString()}</p>
       <p>Actions go here</p>
     </div>
   );

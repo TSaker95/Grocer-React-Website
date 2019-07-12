@@ -60,6 +60,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 1.5rem 0;
 
         p,
         .product-image {
@@ -74,10 +75,6 @@
 
 .specials-container {
     margin-top: 6rem;
-
-    .specials-item {
-        padding: 1.5rem 0;
-    }
 }
 
 // Products list
