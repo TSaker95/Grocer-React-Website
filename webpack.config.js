@@ -18,7 +18,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['@babel/react']
+            presets: ["@babel/react"]
           }
         }
       },
@@ -40,7 +40,8 @@ module.exports = {
     open: true,
     proxy: {
       "/api": "http://localhost:4000"
-    }
+    },
+    historyApiFallback: true
   },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
