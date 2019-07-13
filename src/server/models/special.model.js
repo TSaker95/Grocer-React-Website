@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const specialSchema = new Schema({
   productId: { type: String, required: true },
   startDate: { type: Date, required: false },
   endDate: { type: Date, required: false },
-  salePrice: { type: Number, required: true }
+  salePrice: { type: Number, required: true },
 });
 
-const Special = mongoose.model("Special", specialSchema);
+const Special = mongoose.model('Special', specialSchema);
 
 module.exports = Special;
