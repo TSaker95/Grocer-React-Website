@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const checkAuth = require('./middleware/check-auth');
 
 require('dotenv').config();
 
@@ -30,10 +29,10 @@ app.use(express.static('dist'));
 
 const productsRouter = require('./routes/products');
 
-app.use('/api/products', checkAuth, productsRouter);
+app.use('/api/products', productsRouter);
 const specialsRouter = require('./routes/specials');
 
-app.use('/api/specials', checkAuth, specialsRouter);
+app.use('/api/specials', specialsRouter);
 const usersRouter = require('./routes/users');
 
 app.use('/api/users', usersRouter);

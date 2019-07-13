@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../models/user.model'); // Import user model
+const User = require('../models/user.model');
 
 // @route POST api/users
 // @desc add new users

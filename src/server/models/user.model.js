@@ -6,11 +6,10 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
 });
 
-UserSchema.pre('save', (next) => {
-  // Check if document is new or a new password has been set
+UserSchema.pre('save', function hash(next) {
   if (this.isNew || this.isModified('password')) {
+    // Saving reference to this because of changing scopes
     const document = this;
-
     bcrypt.hash(document.password, 10,
       (err, hashedPassword) => {
         if (err) {
@@ -25,7 +24,7 @@ UserSchema.pre('save', (next) => {
   }
 });
 
-UserSchema.methods.checkPassword = (password, callback) => {
+UserSchema.methods.checkPassword = function checkPassword(password, callback) {
   bcrypt.compare(password, this.password, (err, same) => {
     if (err) {
       callback(err);

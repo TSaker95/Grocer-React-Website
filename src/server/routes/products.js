@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const Product = require('../models/product.model'); // Import use model
+const Product = require('../models/product.model');
+const checkAuth = require('../middleware/check-auth');
 
 // @route GET api/products
 // @desc get all products
@@ -8,6 +9,17 @@ router.route('/').get((req, res) => {
     .then(products => res.json(products))
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
+
+// @route GET api/products/:id
+// @desc get product by id
+router.route('/:id').get((req, res) => {
+  Product.findById(req.params.id)
+    .then(product => res.json(product))
+    .catch(err => res.status(400).json(`Error: ${err}`));
+});
+
+// Using the checkAuth middleware here means only routes below require authentication.
+router.use(checkAuth);
 
 // @route POST api/products/add
 // @desc add new products
@@ -23,14 +35,6 @@ router.route('/').post((req, res) => {
   newProduct
     .save()
     .then(() => res.json('Product added.'))
-    .catch(err => res.status(400).json(`Error: ${err}`));
-});
-
-// @route GET api/products/:id
-// @desc get product by id
-router.route('/:id').get((req, res) => {
-  Product.findById(req.params.id)
-    .then(product => res.json(product))
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 

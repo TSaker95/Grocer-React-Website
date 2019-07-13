@@ -10,7 +10,7 @@ router.route('/login').post((req, res) => {
 
   User.findOne({ email }, (err, user) => {
     if (err) {
-      res.status(400).json(`Error: ${err}`);
+      res.status(400).json(err);
     } else if (!user) {
       res.status(401).json({ error: 'Invalid email or password' });
     } else {
