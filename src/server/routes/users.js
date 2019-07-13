@@ -1,9 +1,9 @@
-const router = require("express").Router();
-const User = require("../models/user.model"); // Import user model
+const router = require('express').Router();
+const User = require('../models/user.model'); // Import user model
 
 // @route POST api/users
 // @desc add new users
-router.route("/").post((req, res) => {
+router.route('/').post((req, res) => {
   const { email, password } = req.body;
 
   const newUser = new User({ email, password });
