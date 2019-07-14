@@ -37,6 +37,24 @@ router.route("/:id").get((req, res) => {
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
+// @route PUT api/specials/:id
+// @desc update special by id
+router.put("/:id", (req, res) => {
+  let specialId = req.params.id;
+
+  let special = {
+    productId: req.body.productId,
+    startDate: req.body.startDate,
+    endDate: req.body.endDate
+  };
+
+  Special.findByIdAndUpdate(specialId, special, (err, special) => {
+    if (err) throw err;
+
+    res.send(`Updated special: ${special}`);
+  });
+});
+
 // @route   DELETE api/specials
 // @desc    Delete a special
 router.delete("/:id", (req, res) => {
