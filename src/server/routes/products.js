@@ -37,20 +37,8 @@ router.route("/:id").get((req, res) => {
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
-// @route POST api/products/:id
+// @route PUT api/products/:id
 // @desc update product by id
-// router.route("/:id").get((req, res) => {
-//   Product.findById(req.params.id)
-//     .then(product => res.json(product))
-//     .catch(err => res.status(400).json(`Error: ${err}`));
-
-//     const name = req.body.name;
-//     const description = req.body.description;
-//     const price = req.body.price;
-
-//     const updatedProduct =
-// });
-
 router.put("/:id", (req, res) => {
   let productId = req.params.id;
 
