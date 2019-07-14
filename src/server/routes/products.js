@@ -41,11 +41,12 @@ router.route("/:id").get((req, res) => {
 // @desc update product by id
 router.put("/:id", (req, res) => {
   let productId = req.params.id;
+  let prevProduct = Product.find({ _id: productId });
 
   let product = {
-    name: req.body.name,
-    description: req.body.description,
-    price: req.body.price
+    name: req.body.name || prevProduct.name,
+    description: req.body.description || prevProduct.description,
+    price: req.body.price || prevProduct.price
   };
 
   Product.findByIdAndUpdate(productId, product, (err, product) => {

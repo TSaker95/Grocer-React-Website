@@ -4,7 +4,12 @@ import ProductItem from "./ProductItem";
 export default function ProductList(props) {
   return (
     <div className="products-container">
-      <h3>Products ({props.products.length})</h3>
+      <div className="section-header products-header">
+        <h3>Products ({props.products.length})</h3>
+        <button className="add-product-button section-add-button">
+          Add product +
+        </button>
+      </div>
       <div className="products-list items-list">
         <div className="headings products-headings">
           <h5>Image</h5>

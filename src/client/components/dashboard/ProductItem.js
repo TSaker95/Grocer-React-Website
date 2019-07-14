@@ -1,5 +1,7 @@
 import React from "react";
 import placeholder from "../../public/images/placeholder.png";
+import editIcon from "../../public/images/edit.svg";
+import deleteIcon from "../../public/images/delete.svg";
 
 export default function ProductItem(props) {
   return (
@@ -8,9 +10,12 @@ export default function ProductItem(props) {
         <img src={placeholder} alt="placeholder" />
       </div>
       <p>{props.item.name}</p>
-      <p>{props.item.price}</p>
+      <p>${props.item.price}</p>
       <p>23/02/1903</p>
-      <p>Actions go here</p>
+      <div className="icons">
+        <img src={editIcon} />
+        <img src={deleteIcon} />
+      </div>
     </div>
   );
 }

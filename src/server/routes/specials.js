@@ -41,11 +41,12 @@ router.route("/:id").get((req, res) => {
 // @desc update special by id
 router.put("/:id", (req, res) => {
   let specialId = req.params.id;
+  let previousSpecial = Special.find({ _id: specialId });
 
   let special = {
-    productId: req.body.productId,
-    startDate: req.body.startDate,
-    endDate: req.body.endDate
+    productId: req.body.productId || previousSpecial.productId,
+    startDate: req.body.startDate || previousSpecial.startDate,
+    endDate: req.body.endDate || previousSpecial.endDate
   };
 
   Special.findByIdAndUpdate(specialId, special, (err, special) => {

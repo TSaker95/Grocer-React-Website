@@ -4,7 +4,12 @@ import SpecialsItem from "./SpecialsItem";
 export default function SpecialsList(props) {
   return (
     <div className="specials-container">
-      <h3>Specials ({props.specials.length})</h3>
+      <div className="section-header specials-header">
+        <h3>Specials ({props.specials.length})</h3>
+        <button className="add-product-button section-add-button">
+          Add special +
+        </button>
+      </div>
       <div className="specials-list items-list">
         <div className="headings specials-headings">
           <h5>Name</h5>
