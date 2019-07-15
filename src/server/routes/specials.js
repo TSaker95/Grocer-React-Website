@@ -35,8 +35,27 @@ router.route('/').post((req, res) => {
   // save new special to mongo db database
   newSpecial
     .save()
-    .then(() => res.json('Special added.'))
+    .then(() => res.json(newSpecial))
     .catch(err => res.status(400).json(`Error: ${err}`));
+});
+
+// @route PUT api/specials/:id
+// @desc update special by id
+router.put('/:id', (req, res) => {
+  const specialId = req.params.id;
+  const previousSpecial = Special.find({ _id: specialId });
+
+  const special = {
+    productId: req.body.productId || previousSpecial.productId,
+    startDate: req.body.startDate || previousSpecial.startDate,
+    endDate: req.body.endDate || previousSpecial.endDate,
+  };
+
+  Special.findByIdAndUpdate(specialId, special, (err, updatedSpecial) => {
+    if (err) throw err;
+
+    res.json(updatedSpecial);
+  });
 });
 
 // @route   DELETE api/specials

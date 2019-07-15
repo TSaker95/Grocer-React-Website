@@ -1,5 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { api } from "../../api";
 
 export default function SpecialsItem(props) {
-  return <li className="specials-item">{props.item.productId}</li>;
+  const parseDate = date => date.split("T")[0];
+
+  return (
+    <div className="specials-item list-row">
+      <p>{props.product.name}</p>
+      <p>${props.product.price}</p>
+      <p>Sale price</p>
+      <p>{parseDate(props.item.startDate)}</p>
+      <p>{parseDate(props.item.endDate)}</p>
+      <p>Actions go here</p>
+    </div>
+  );
 }
