@@ -1,101 +1,150 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: #333;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    list-style: none;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  list-style: none;
+  text-decoration: none;
 }
 
 .container {
-    max-width: 1080px;
-    margin: auto;
+  max-width: 1080px;
+  margin: auto;
 }
 
 .table {
-    border-collapse: collapse;
-    text-align: left;
+  border-collapse: collapse;
+  text-align: left;
 
-    th,
-    td {
-        width: 8rem;
-    }
+  th,
+  td {
+    width: 8rem;
+  }
 }
+
+// Home Page Styles:
+
+.nav1 {
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+  padding: 1%;
+  border: rgb(233, 229, 229);
+  border-style: solid;
+  border-width: 1px;
+  font-size-adjust: 0.8;
+  max-width: 100%;
+  height: auto;
+}
+
+.pagemargin {
+  //This controls the margin of the entire homepage
+  margin: 0% 10% 0% 10%;
+}
+
+.hpsection {
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+  margin: 0%;
+  border: rgb(233, 229, 229);
+  border-style: solid;
+  border-width: 1px;
+  padding: 1%;
+}
+// .navtext {
+//   border: #333;
+//   border: dotted;
+// }
+@media only screen and (max-width: 700px) {
+  .nav1 {
+    display: flex;
+    flex: wrap;
+  }
+
+  .pagemargin {
+    //This controls the margin of the entire homepage
+    margin: 0% 10% 0% 10%;
+  }
+
+  .hpsection {
+    display: flex;
+    flex: wrap;
+    justify-content: center;
+  }
+}
+// .imglogo
 
 // Client dashboard styles
 
 // Dashboard navbar
 .dashboard-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1.5rem 0;
+
+  h2 {
+    margin-right: 5rem;
+  }
+
+  &-links {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1.5rem 0;
-
-    h2 {
-        margin-right: 5rem;
-    }
-
-    &-links {
-        display: flex;
-        justify-content: space-between;
-        width: 20rem;
-        font-weight: 600;
-    }
+    justify-content: space-between;
+    width: 20rem;
+    font-weight: 600;
+  }
 }
 
 .items-list {
+  .headings {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0;
 
-    .headings {
-        display: flex;
-        justify-content: space-between;
-        margin: 2em 0;
-
-        h5 {
-            width: 50%;
-        }
+    h5 {
+      width: 50%;
     }
+  }
 
-    .list-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 0;
+  .list-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
 
-        p,
-        .product-image {
-            width: 50%;
-            text-align: left;
-        }
+    p,
+    .product-image {
+      width: 50%;
+      text-align: left;
     }
+  }
 }
-
 
 // Specials list
 
-
 .specials-container {
-    margin-top: 6rem;
+  margin-top: 6rem;
 
-    .specials-headings {
-
-        h5:first-child {
-            width: 100%;
-        }
+  .specials-headings {
+    h5:first-child {
+      width: 100%;
     }
+  }
 
-    .specials-list-content {
-        .specials-item {
-            p:first-child {
-                width: 100%;
-            }
-        }
+  .specials-list-content {
+    .specials-item {
+      p:first-child {
+        width: 100%;
+      }
     }
+  }
 }
 
 // Products list
 
 .products-container {
-    margin-top: 5rem;
-
+  margin-top: 5rem;
 }
