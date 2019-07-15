@@ -32,7 +32,11 @@ export default function ProductList(props) {
         </div>
         <div className="list-content products-list-content">
           {props.products.map(product => (
-            <ProductItem item={product} key={product._id} />
+            <ProductItem
+              item={product}
+              key={product._id}
+              deleteProduct={props.deleteProduct}
+            />
           ))}
         </div>
       </div>

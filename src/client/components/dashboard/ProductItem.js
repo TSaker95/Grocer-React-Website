@@ -48,6 +48,7 @@ export default function ProductItem(props) {
         isOpen={isDeleteModalOpen}
         closeModal={handleCloseDeleteModal}
         item={props.item}
+        deleteProduct={props.deleteProduct}
       />
     </div>
   );

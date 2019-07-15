@@ -30,7 +30,9 @@ export default function Dashboard() {
 
   const updateProduct = () => {};
 
-  const deleteProduct = () => {};
+  const deleteProduct = id => {
+    api.delete(`api/products/${id}`).then(res => console.log(res));
+  };
 
   const addSpecial = () => {};
 
@@ -42,7 +44,10 @@ export default function Dashboard() {
     <div className="container">
       <DashboardNavbar />
       <SpecialsList specials={specials ? specials : []} products={products} />
-      <ProductList products={products ? products : []} />
+      <ProductList
+        products={products ? products : []}
+        deleteProduct={deleteProduct}
+      />
     </div>
   );
 }
