@@ -71,7 +71,7 @@ export default function EditProductModal(props) {
           <p onClick={props.closeModal} className="cancel-modal-action">
             Cancel delete
           </p>
-          <button className="delete-product btn-m btn-danger">
+          <button className="delete-product btn btn-danger">
             Delete product
           </button>
         </div>
