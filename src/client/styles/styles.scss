@@ -1,3 +1,6 @@
+@import 'config';
+@import 'utilities';
+
 * {
     margin: 0;
     padding: 0;
@@ -156,12 +159,48 @@
 
 // Modals
 
-// Edit product modal
-
 .modal {
     height: 100%;
     width: 100%;
     overflow: hidden;
+
+    .modal-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.3em;
+
+        p {
+            font-size: 1.5rem;
+            color: #ccc;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .modal-content,
+    .modal-footer {
+        padding: 20px;
+    }
+
+    .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .cancel-modal-action {
+            margin-right: 1em;
+            font-size: 0.8em;
+            font-weight: 700;
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
 
     form {
         display: flex;
@@ -169,6 +208,21 @@
     }
 }
 
+// Edit product modal
+
+
 .edit-product-modal {
     // border-top: 6px solid #40A4F4;
+}
+
+.delete-product-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .modal-footer {
+        height: 80px;
+        width: 100%;
+        background: hsl(0%, 0%, 97%),
+    }
 }

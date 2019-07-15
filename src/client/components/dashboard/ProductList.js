@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react";
 import ProductItem from "./ProductItem";
+import NewProductModal from "./modals/NewProductModal.js";
 
 export default function ProductList(props) {
+  const [isNewProductModalOpen, setIsNewProductModalOpen] = useState(false);
+  const handleOpenNewProductModal = () => {
+    setIsNewProductModalOpen(true);
+  };
+
+  const handleCloseNewProductModal = () => {
+    setIsNewProductModalOpen(false);
+  };
   return (
     <div className="products-container">
       <div className="section-header products-header">
         <h3>Products ({props.products.length})</h3>
-        <button className="add-product-button section-add-button">
+        <button
+          className="add-product-button section-add-button"
+          onClick={handleOpenNewProductModal}
+        >
           Add product +
         </button>
       </div>
@@ -24,6 +36,11 @@ export default function ProductList(props) {
           ))}
         </div>
       </div>
+
+      <NewProductModal
+        isOpen={isNewProductModalOpen}
+        closeModal={handleCloseNewProductModal}
+      />
     </div>
   );
 }

@@ -26,6 +26,18 @@ export default function Dashboard() {
     return () => {};
   }, []);
 
+  const addProduct = () => {};
+
+  const updateProduct = () => {};
+
+  const deleteProduct = () => {};
+
+  const addSpecial = () => {};
+
+  const updateSpecial = () => {};
+
+  const deleteSpecial = () => {};
+
   return (
     <div className="container">
       <DashboardNavbar />

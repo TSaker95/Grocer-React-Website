@@ -8,7 +8,6 @@ import EditProductModal from "./modals/EditProductModal";
 
 export default function ProductItem(props) {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-
   const handleOpenEditModal = () => {
     setIsEditModalOpen(true);
   };
@@ -19,11 +18,11 @@ export default function ProductItem(props) {
 
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const handleOpenDeleteModal = () => {
-    setIsModalDeleteOpen(true);
+    setIsDeleteModalOpen(true);
   };
 
   const handleCloseDeleteModal = () => {
-    setIsModalDeleteOpen(false);
+    setIsDeleteModalOpen(false);
   };
 
   return (
@@ -38,9 +37,16 @@ export default function ProductItem(props) {
         <img src={editIcon} onClick={handleOpenEditModal} />
         <img src={deleteIcon} onClick={handleOpenDeleteModal} />
       </div>
+
       <EditProductModal
         isOpen={isEditModalOpen}
         closeModal={handleCloseEditModal}
+        item={props.item}
+      />
+
+      <DeleteProductModal
+        isOpen={isDeleteModalOpen}
+        closeModal={handleCloseDeleteModal}
         item={props.item}
       />
     </div>
