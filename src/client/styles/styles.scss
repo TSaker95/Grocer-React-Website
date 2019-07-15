@@ -152,5 +152,23 @@
             width: 100%;
         }
     }
+}
 
+// Modals
+
+// Edit product modal
+
+.modal {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.edit-product-modal {
+    // border-top: 6px solid #40A4F4;
 }
