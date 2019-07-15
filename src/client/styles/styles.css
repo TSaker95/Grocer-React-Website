@@ -133,6 +133,10 @@
   width: 100%;
 }
 
+.specials-container .specials-headings h5:last-child {
+  width: 30%;
+}
+
 .specials-container .specials-list-content .specials-item p:first-child {
   width: 100%;
 }

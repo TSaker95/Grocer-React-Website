@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { api } from "../../api";
+import editIcon from "../../public/images/edit.svg";
+import deleteIcon from "../../public/images/delete.svg";
 
 export default function SpecialsItem(props) {
   const parseDate = date => date.split("T")[0];
@@ -11,7 +12,10 @@ export default function SpecialsItem(props) {
       <p>Sale price</p>
       <p>{parseDate(props.item.startDate)}</p>
       <p>{parseDate(props.item.endDate)}</p>
-      <p>Actions go here</p>
+      <div className="icons">
+        <img src={editIcon} />
+        <img src={deleteIcon} />
+      </div>
     </div>
   );
 }
