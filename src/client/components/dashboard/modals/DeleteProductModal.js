@@ -33,20 +33,20 @@ const styles = {
 };
 
 export default function EditProductModal(props) {
-  const addProduct = e => {
-    // Stop the form from submitting
-    e.preventDefault();
+  // const addProduct = e => {
+  //   // Stop the form from submitting
+  //   e.preventDefault();
 
-    const product = {
-      name: nameRef.current.value,
-      price: parseFloat(priceRef.current.value),
-      desc: descRef.current.value
-    };
+  //   const product = {
+  //     name: nameRef.current.value,
+  //     price: parseFloat(priceRef.current.value),
+  //     desc: descRef.current.value
+  //   };
 
-    props.addProduct(product);
-    // Refresh the form
-    // e.currentTarget.reset();
-  };
+  //   props.addProduct(product);
+  //   // Refresh the form
+  //   // e.currentTarget.reset();
+  // };
 
   return (
     <Modal
@@ -73,7 +73,15 @@ export default function EditProductModal(props) {
           </p>
           <button
             className="delete-product btn btn-danger"
-            onClick={props.deleteProduct(props.item._id)}
+            onClick={() => {
+              // setTimeout(props.closeModal, 10000);
+              // props.deleteProduct(props.item._id);
+
+              setTimeout(() => {
+                props.closeModal;
+                props.deleteProduct(props.item._id);
+              }, 1000);
+            }}
           >
             Delete product
           </button>

@@ -31,7 +31,10 @@ export default function Dashboard() {
   const updateProduct = () => {};
 
   const deleteProduct = id => {
+    // Delete product from database
     api.delete(`api/products/${id}`).then(res => console.log(res));
+    // Rerender list with all products where id does not equal the id of deleted product
+    setProducts(products.filter(product => product._id !== id));
   };
 
   const addSpecial = () => {};
@@ -43,7 +46,10 @@ export default function Dashboard() {
   return (
     <div className="container">
       <DashboardNavbar />
-      <SpecialsList specials={specials ? specials : []} products={products} />
+      <SpecialsList
+        specials={specials ? specials : []}
+        products={products ? products : []}
+      />
       <ProductList
         products={products ? products : []}
         deleteProduct={deleteProduct}

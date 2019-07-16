@@ -20,13 +20,19 @@ export default function SpecialsList(props) {
           <h5>Actions</h5>
         </div>
         <div className="list-content specials-list-content">
-          {props.specials.map(special => (
-            <SpecialsItem
-              item={special}
-              product={props.products.find(i => i._id === special.productId)}
-              key={special._id}
-            />
-          ))}
+          {props.specials.length ? (
+            props.specials.map(special => (
+              <SpecialsItem
+                item={special}
+                product={props.products.filter(
+                  i => i._id === special.productId
+                )}
+                key={special._id}
+              />
+            ))
+          ) : (
+            <p>nothing</p>
+          )}
         </div>
       </div>
     </div>

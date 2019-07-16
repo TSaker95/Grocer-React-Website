@@ -7,8 +7,8 @@ export default function SpecialsItem(props) {
 
   return (
     <div className="specials-item list-row">
-      <p>{props.product.name}</p>
-      <p>${props.product.price}</p>
+      <p>{props.item.name}</p>
+      <p>${props.item.price}</p>
       <p>Sale price</p>
       <p>{parseDate(props.item.startDate)}</p>
       <p>{parseDate(props.item.endDate)}</p>

@@ -37,7 +37,6 @@ export default function ProductItem(props) {
         <img src={editIcon} onClick={handleOpenEditModal} />
         <img src={deleteIcon} onClick={handleOpenDeleteModal} />
       </div>
-
       <EditProductModal
         isOpen={isEditModalOpen}
         closeModal={handleCloseEditModal}
