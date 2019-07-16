@@ -33,21 +33,6 @@ const styles = {
 };
 
 export default function EditProductModal(props) {
-  // const addProduct = e => {
-  //   // Stop the form from submitting
-  //   e.preventDefault();
-
-  //   const product = {
-  //     name: nameRef.current.value,
-  //     price: parseFloat(priceRef.current.value),
-  //     desc: descRef.current.value
-  //   };
-
-  //   props.addProduct(product);
-  //   // Refresh the form
-  //   // e.currentTarget.reset();
-  // };
-
   return (
     <Modal
       isOpen={props.isOpen}
@@ -74,9 +59,6 @@ export default function EditProductModal(props) {
           <button
             className="delete-product btn btn-danger"
             onClick={() => {
-              // setTimeout(props.closeModal, 10000);
-              // props.deleteProduct(props.item._id);
-
               setTimeout(() => {
                 props.closeModal;
                 props.deleteProduct(props.item._id);
