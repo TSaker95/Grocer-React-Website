@@ -24,6 +24,21 @@
   width: 8rem;
 }
 
+.navlogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: wrap;
+      -ms-flex: wrap;
+          flex: wrap;
+  max-width: 100%;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1%;
+}
+
 .nav1 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,13 +53,12 @@
   border: #e9e5e5;
   border-style: solid;
   border-width: 1px;
-  font-size-adjust: 0.8;
-  max-width: 100%;
-  height: auto;
+  font-size: 2rem;
 }
 
 .pagemargin {
   margin: 0% 10% 0% 10%;
+  background-color: white;
 }
 
 .hpsection {
@@ -62,30 +76,165 @@
   border-style: solid;
   border-width: 1px;
   padding: 1%;
+  width: 100%;
+}
+
+.hpsectiond {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: wrap;
+      -ms-flex: wrap;
+          flex: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0%;
+  border: #e9e5e5;
+  border-style: solid;
+  border-width: 1px;
+  padding: 1%;
+  background-color: rgba(189, 187, 187, 0.699);
+  width: 100%;
+}
+
+.navtext {
+  border: white;
+  border-style: solid;
+  border-width: 1px;
+  padding: 2%;
+  text-align: center;
+}
+
+.SectionA {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0%;
+  border: rgba(233, 229, 229, 0.753);
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.SectionAlist {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0%;
+  border: rgba(233, 229, 229, 0.753);
+  border-style: solid;
+  border-width: 1px;
+  text-align: left;
+  padding-left: 15%;
+  padding: 2% 2% 2% 15%;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.SectionAimg {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: rgba(233, 229, 229, 0.753);
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 25%;
+}
+
+.SectionBimg {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: rgba(233, 229, 229, 0.753);
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 33.33%;
+}
+
+.footertext {
+  border: #e9e9e9;
+  border-style: solid;
+  border-width: 1px;
+  padding: 2%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.foot1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: wrap;
+      -ms-flex: wrap;
+          flex: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1%;
+  border: rgba(233, 229, 229, 0.753);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.footlogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: wrap;
+      -ms-flex: wrap;
+          flex: wrap;
+  max-width: 100%;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1%;
+}
+
+.footerstuff {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: rgba(233, 229, 229, 0.753);
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 33.3%;
+  font-size: 1rem;
+  margin: 1%;
 }
 
 @media only screen and (max-width: 700px) {
   .nav1 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: wrap;
-        -ms-flex: wrap;
-            flex: wrap;
+    font-size: 1rem;
   }
   .pagemargin {
-    margin: 0% 10% 0% 10%;
+    margin: 0%;
   }
-  .hpsection {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: wrap;
-        -ms-flex: wrap;
-            flex: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  .footertext {
+    font-size: 0.5rem;
+  }
+  .footerstuff {
+    font-size: 0.5rem;
+  }
+  .SectionA {
+    width: 100%;
+  }
+  .SectionAimg {
+    width: 50%;
+  }
+  .SectionBimg {
+    width: 50%;
   }
 }
 
@@ -113,7 +262,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 20rem;
+  width: 0rem;
   font-weight: 600;
 }
 

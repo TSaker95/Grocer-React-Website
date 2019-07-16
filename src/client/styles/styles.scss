@@ -26,22 +26,34 @@
 
 // Home Page Styles:
 
+.navlogo {
+  display: flex;
+  flex: wrap;
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  padding: 1%;
+}
+
 .nav1 {
   display: flex;
   flex: wrap;
   justify-content: space-between;
   padding: 1%;
-  border: rgb(233, 229, 229);
+  border: rgb(
+    233,
+    229,
+    229
+  ); //borders are for the purpose of building and development, showing where the component is.
   border-style: solid;
   border-width: 1px;
-  font-size-adjust: 0.8;
-  max-width: 100%;
-  height: auto;
+  font-size: 2rem;
 }
 
 .pagemargin {
   //This controls the margin of the entire homepage
   margin: 0% 10% 0% 10%;
+  background-color: rgb(255, 255, 255);
 }
 
 .hpsection {
@@ -53,26 +65,180 @@
   border-style: solid;
   border-width: 1px;
   padding: 1%;
+  width: 100%;
 }
-// .navtext {
-//   border: #333;
-//   border: dotted;
-// }
+
+.hpsectiond {
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+  margin: 0%;
+  border: rgb(233, 229, 229);
+  border-style: solid;
+  border-width: 1px;
+  padding: 1%;
+  background-color: rgba(189, 187, 187, 0.699);
+  width: 100%;
+}
+
+.navtext {
+  border: rgb(
+    255,
+    255,
+    255
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  padding: 2%;
+  text-align: center;
+}
+
+.SectionA {
+  justify-content: center;
+  margin: 0%;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.SectionAlist {
+  justify-content: center;
+  margin: 0%;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: left;
+  padding-left: 15%;
+  padding: 2% 2% 2% 15%;
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.SectionAimg {
+  justify-content: center;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 25%;
+}
+
+.SectionBimg {
+  justify-content: center;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 33.33%;
+}
+
+.footertext {
+  border: rgb(
+    233,
+    233,
+    233
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  padding: 2%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.foot1 {
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+  padding: 1%;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+}
+
+.footlogo {
+  display: flex;
+  flex: wrap;
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  padding: 1%;
+}
+
+.footerstuff {
+  justify-content: center;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 33.3%;
+  font-size: 1rem;
+  margin: 1%;
+}
+
 @media only screen and (max-width: 700px) {
+  // This thing makes it scale able to mobile use, atm it seems fine with just this setting as it looks ok on laptops and ipad sized screens!
   .nav1 {
-    display: flex;
-    flex: wrap;
+    font-size: 1rem;
   }
-
   .pagemargin {
-    //This controls the margin of the entire homepage
-    margin: 0% 10% 0% 10%;
+    margin: 0%;
   }
 
-  .hpsection {
-    display: flex;
-    flex: wrap;
-    justify-content: center;
+  .footertext {
+    font-size: 0.5rem;
+  }
+
+  .footerstuff {
+    font-size: 0.5rem;
+  }
+  .SectionA {
+    width: 100%;
+  }
+
+  .SectionAimg {
+    width: 50%;
+  }
+
+  .SectionBimg {
+    width: 50%;
   }
 }
 // .imglogo
@@ -93,7 +259,7 @@
   &-links {
     display: flex;
     justify-content: space-between;
-    width: 20rem;
+    width: 0rem;
     font-weight: 600;
   }
 }
