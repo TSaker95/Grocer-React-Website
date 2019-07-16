@@ -9,7 +9,7 @@ router.route("/").get((req, res) => {
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
-// @route POST api/products/add
+// @route POST api/products/
 // @desc add new products
 router.route("/").post((req, res) => {
   const name = req.body.name;

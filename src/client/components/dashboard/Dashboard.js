@@ -8,31 +8,53 @@ export default function Dashboard() {
   const [products, setProducts] = useState([]);
   const [specials, setSpecials] = useState([]);
 
-  useEffect(() => {
+  // Get the all products from the API
+  const getProducts = () => {
     api
       .get("api/products")
       .then(res => {
         setProducts([...res.data]);
       })
       .catch(err => console.log(`Error: ${err}`));
+  };
 
+  // Get all specials from the API
+  const getSpecials = () => {
     api
       .get("/api/specials")
       .then(res => {
         setSpecials([...res.data]);
       })
       .catch(err => console.log(`Error: ${err}`));
+  };
 
+  // Initial render
+  useEffect(() => {
+    getProducts();
+    getSpecials();
     return () => {};
   }, []);
 
-  const addProduct = () => {};
+  // Add products functions
+  const addProduct = product => {
+    // Send post request to API with new product
+    api
+      .post("/api/products", product)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+
+    // Update state with the new product
+    setProducts([product, ...products]);
+  };
 
   const updateProduct = () => {};
 
   const deleteProduct = id => {
     // Delete product from database
-    api.delete(`api/products/${id}`).then(res => console.log(res));
+    api
+      .delete(`api/products/${id}`)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
     // Rerender list with all products where id does not equal the id of deleted product
     setProducts(products.filter(product => product._id !== id));
   };
@@ -53,6 +75,7 @@ export default function Dashboard() {
       <ProductList
         products={products ? products : []}
         deleteProduct={deleteProduct}
+        addProduct={addProduct}
       />
     </div>
   );

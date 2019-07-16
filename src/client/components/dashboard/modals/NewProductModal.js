@@ -3,35 +3,6 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-// Modal.defaultStyles = {
-//   overlay: {
-//     position: "fixed",
-//     top: 0,
-//     left: 0,
-//     right: 0,
-//     bottom: 0,
-//     backgroundColor: "rgba(255, 255, 255, 0.75)"
-//   },
-//   content: {
-//     position: "absolute",
-//     border: "1px solid #ccc",
-//     borderTop: "6px solid #40A4F4",
-//     width: "600px",
-//     height: "600px",
-//     margin: "auto",
-//     top: "40px",
-//     left: "40px",
-//     right: "40px",
-//     bottom: "40px",
-//     background: "#fff",
-//     overflow: "auto",
-//     WebkitOverflowScrolling: "touch",
-//     borderRadius: "4px",
-//     outline: "none",
-//     padding: "20px"
-//   }
-// };
-
 export default function NewProductModal(props) {
   const nameRef = React.createRef();
   const priceRef = React.createRef();
@@ -44,12 +15,13 @@ export default function NewProductModal(props) {
     const product = {
       name: nameRef.current.value,
       price: parseFloat(priceRef.current.value),
-      desc: descRef.current.value
+      description: descRef.current.value
     };
 
     props.addProduct(product);
-    // Refresh the form
-    // e.currentTarget.reset();
+
+    // Pause for a second so the user thinks that computer is 'thinking' - good UX/UI
+    setTimeout(props.closeModal, 1400);
   };
 
   return (
@@ -62,7 +34,6 @@ export default function NewProductModal(props) {
       <div className="edit-product-modal modal">
         <form className="product-edit" onSubmit={addProduct}>
           <label>
-            {" "}
             Product name
             <input
               name="name"

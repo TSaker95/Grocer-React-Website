@@ -42,20 +42,13 @@ export default function ProductList(props) {
           ) : (
             <p>wow</p>
           )}
-
-          {/* {props.products.map(product => (
-            <ProductItem
-              item={product}
-              key={product._id}
-              deleteProduct={props.deleteProduct}
-            />
-          ))} */}
         </div>
       </div>
 
       <NewProductModal
         isOpen={isNewProductModalOpen}
         closeModal={handleCloseNewProductModal}
+        addProduct={props.addProduct}
       />
     </div>
   );
