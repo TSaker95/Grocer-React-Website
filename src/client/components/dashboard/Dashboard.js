@@ -65,7 +65,11 @@ export default function Dashboard() {
   const addSpecial = special => {
     api
       .post("/api/specials", special)
-      .then(res => setSpecials([specials, ...specials]));
+      .then(res => {
+        setSpecials([special, ...specials]);
+        console.log(res);
+      })
+      .catch(err => console.log(err));
   };
 
   const updateSpecial = () => {};

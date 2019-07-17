@@ -38,10 +38,7 @@ export default function SpecialsList(props) {
               <SpecialsItem
                 item={special}
                 product={props.products.find(product => {
-                  console.log(
-                    `Special: ${special.productId} \nProduct: ${product._id}`
-                  );
-                  product._id === special.productId;
+                  return product._id === special.productId;
                 })}
                 key={special._id}
               />
