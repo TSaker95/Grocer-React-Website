@@ -41,6 +41,7 @@ export default function SpecialsList(props) {
                   return product._id === special.productId;
                 })}
                 key={special._id}
+                deleteSpecial={props.deleteSpecial}
               />
             ))
           ) : (

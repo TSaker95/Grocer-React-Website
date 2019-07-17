@@ -52,14 +52,14 @@ export default function Dashboard() {
   };
 
   // Delete products function
-  const deleteProduct = id => {
+  const deleteProduct = productId => {
     // Delete product from database
     api
-      .delete(`api/products/${id}`)
+      .delete(`api/products/${productId}`)
       .then(res => console.log(res))
       .catch(err => console.log(err));
     // Rerender list with all products where id does not equal the id of deleted product
-    setProducts(products.filter(product => product._id !== id));
+    setProducts(products.filter(product => product._id !== productId));
   };
 
   const addSpecial = special => {
@@ -74,7 +74,15 @@ export default function Dashboard() {
 
   const updateSpecial = () => {};
 
-  const deleteSpecial = () => {};
+  const deleteSpecial = specialId => {
+    api
+      .delete(`/api/specials/${specialId}`)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+    setSpecials(specials.filter(special => special._id !== specialId));
+  };
 
   return (
     <div className="container">
@@ -83,6 +91,7 @@ export default function Dashboard() {
         specials={specials ? specials : []}
         products={products ? products : []}
         addSpecial={addSpecial}
+        deleteSpecial={deleteSpecial}
       />
       <ProductList
         products={products ? products : []}

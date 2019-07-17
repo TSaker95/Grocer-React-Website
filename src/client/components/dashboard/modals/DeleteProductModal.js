@@ -32,7 +32,7 @@ const styles = {
   }
 };
 
-export default function EditProductModal(props) {
+export default function DeleteProductModal(props) {
   return (
     <Modal
       isOpen={props.isOpen}
