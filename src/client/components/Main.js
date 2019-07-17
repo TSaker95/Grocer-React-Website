@@ -18,7 +18,7 @@ export default function Main() {
 
       <div>
         <div className="SectionA">
-          <p>
+          <p className="SectionAtext">
             Hillsdon Grocer in Taringa stocks a wide range of produce and
             groceries as well as take home dinners, deli meats, baked goods and
             much more. Locally sourced and only the best products
@@ -38,20 +38,20 @@ export default function Main() {
         </div>
       </div>
 
-      <div className="hpsection">
-        <div className="SectionAimg">
-          <p> Image here </p>
-        </div>
-        <div className="SectionAimg">
-          <p> Image here </p>
-        </div>
-        <div className="SectionAimg">
-          <p> Image here </p>
-        </div>
-        <div className="SectionAimg">
-          <p> Image here </p>
-        </div>
+      {/* <div className="hpsection"> */}
+      <div className="SectionAimg">
+        <p> Image here </p>
       </div>
+      <div className="SectionAimg">
+        <p> Image here </p>
+      </div>
+      <div className="SectionAimg">
+        <p> Image here </p>
+      </div>
+      <div className="SectionAimg">
+        <p> Image here </p>
+      </div>
+      {/* </div> */}
 
       <div className="hpsectiond">
         <h1> Specials </h1>
@@ -93,18 +93,18 @@ export default function Main() {
 
       <div className="hpsection">
         <div className="SectionA">
-          <h2> Our Address </h2>
-          <p> 30 Hillsdon Road </p>
-          <p> Taringa, QLD 4068 </p>
+          <h2 className="h2-1"> Our Address </h2>
+          <p className="SectionBtext"> 30 Hillsdon Road </p>
+          <p className="SectionBtext"> Taringa, QLD 4068 </p>
         </div>
         <div className="SectionA">
-          <h2> Opening Hours</h2>
-          <p> Mon - Fri: 7am - 5pm </p>
-          <p> Sat - Sun: 8am - 3pm </p>
+          <h2 className="h2-1"> Opening Hours</h2>
+          <p className="SectionBtext"> Mon - Fri: 7am - 5pm </p>
+          <p className="SectionBtext"> Sat - Sun: 8am - 3pm </p>
 
-          <h2> Get In Touch</h2>
-          <p> example@email.com</p>
-          <p> (05) 9182 7364 </p>
+          <h2 className="h2-1"> Get In Touch</h2>
+          <p className="SectionBtext"> example@email.com</p>
+          <p className="SectionBtext"> (05) 9182 7364 </p>
         </div>
       </div>
 
