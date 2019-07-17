@@ -37,6 +37,7 @@ export default function ProductList(props) {
                 item={product}
                 key={product._id}
                 deleteProduct={props.deleteProduct}
+                updateProduct={props.updateProduct}
               />
             ))
           ) : (

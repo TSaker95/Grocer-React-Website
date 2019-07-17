@@ -12,9 +12,7 @@ export default function Dashboard() {
   const getProducts = () => {
     api
       .get("api/products")
-      .then(res => {
-        setProducts([...res.data]);
-      })
+      .then(res => setProducts([...res.data]))
       .catch(err => console.log(`Error: ${err}`));
   };
 
@@ -22,9 +20,7 @@ export default function Dashboard() {
   const getSpecials = () => {
     api
       .get("/api/specials")
-      .then(res => {
-        setSpecials([...res.data]);
-      })
+      .then(res => setSpecials([...res.data]))
       .catch(err => console.log(`Error: ${err}`));
   };
 
@@ -47,8 +43,15 @@ export default function Dashboard() {
     setProducts([product, ...products]);
   };
 
-  const updateProduct = () => {};
+  // Update products function
+  const updateProduct = (prevProduct, updatedProductInfo) => {
+    api
+      .put(`api/products/${prevProduct._id}`, updatedProductInfo)
+      .then(res => getProducts())
+      .catch(err => console.log(err));
+  };
 
+  // Delete products function
   const deleteProduct = id => {
     // Delete product from database
     api
@@ -76,6 +79,7 @@ export default function Dashboard() {
         products={products ? products : []}
         deleteProduct={deleteProduct}
         addProduct={addProduct}
+        updateProduct={updateProduct}
       />
     </div>
   );

@@ -4,7 +4,7 @@ import placeholder from "../../public/images/placeholder.png";
 import editIcon from "../../public/images/edit.svg";
 import deleteIcon from "../../public/images/delete.svg";
 import DeleteProductModal from "./modals/DeleteProductModal";
-import EditProductModal from "./modals/EditProductModal";
+import UpdateProductModal from "./modals/UpdateProductModal";
 
 export default function ProductItem(props) {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -37,10 +37,11 @@ export default function ProductItem(props) {
         <img src={editIcon} onClick={handleOpenEditModal} />
         <img src={deleteIcon} onClick={handleOpenDeleteModal} />
       </div>
-      <EditProductModal
+      <UpdateProductModal
         isOpen={isEditModalOpen}
         closeModal={handleCloseEditModal}
         item={props.item}
+        updateProduct={props.updateProduct}
       />
 
       <DeleteProductModal

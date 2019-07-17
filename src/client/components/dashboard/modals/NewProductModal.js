@@ -18,10 +18,11 @@ export default function NewProductModal(props) {
       description: descRef.current.value
     };
 
-    props.addProduct(product);
-
-    // Pause for a second so the user thinks that computer is 'thinking' - good UX/UI
-    setTimeout(props.closeModal, 1400);
+    // Simulate a wait period to write data to db - good for UX
+    setTimeout(() => {
+      props.addProduct(product);
+      props.closeModal();
+    }, 1400);
   };
 
   return (
