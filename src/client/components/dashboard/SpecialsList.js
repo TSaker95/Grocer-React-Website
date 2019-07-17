@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import SpecialsItem from "./SpecialsItem";
+import NewSpecialModal from "./modals/NewSpecialModal";
 
 export default function SpecialsList(props) {
+  const [isNewspecialModalOpen, setIsNewspecialModalOpen] = useState(false);
+  const handleOpenNewSpecialModal = () => {
+    setIsNewspecialModalOpen(true);
+  };
+
+  const handleCloseNewspecialModal = () => {
+    setIsNewspecialModalOpen(false);
+  };
+
   return (
     <div className="specials-container">
       <div className="section-header specials-header">
         <h3>Specials ({props.specials.length})</h3>
-        <button className="add-product-button section-add-button">
+        <button
+          className="add-special-button section-add-button"
+          onClick={handleOpenNewSpecialModal}
+        >
           Add special +
         </button>
       </div>
@@ -24,9 +37,12 @@ export default function SpecialsList(props) {
             props.specials.map(special => (
               <SpecialsItem
                 item={special}
-                product={props.products.filter(
-                  i => i._id === special.productId
-                )}
+                product={props.products.find(product => {
+                  console.log(
+                    `Special: ${special.productId} \nProduct: ${product._id}`
+                  );
+                  product._id === special.productId;
+                })}
                 key={special._id}
               />
             ))
@@ -35,6 +51,13 @@ export default function SpecialsList(props) {
           )}
         </div>
       </div>
+
+      <NewSpecialModal
+        isOpen={isNewspecialModalOpen}
+        closeModal={handleCloseNewspecialModal}
+        addSpecial={props.addSpecial}
+        products={props.products}
+      />
     </div>
   );
 }

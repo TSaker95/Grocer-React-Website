@@ -62,7 +62,11 @@ export default function Dashboard() {
     setProducts(products.filter(product => product._id !== id));
   };
 
-  const addSpecial = () => {};
+  const addSpecial = special => {
+    api
+      .post("/api/specials", special)
+      .then(res => setSpecials([specials, ...specials]));
+  };
 
   const updateSpecial = () => {};
 
@@ -74,6 +78,7 @@ export default function Dashboard() {
       <SpecialsList
         specials={specials ? specials : []}
         products={products ? products : []}
+        addSpecial={addSpecial}
       />
       <ProductList
         products={products ? products : []}
