@@ -1,6 +1,5 @@
 import React from "react";
 import { api } from "../api";
-import { Router, Redirect } from "react-router-dom";
 
 export default function Login(props) {
   const usernameRef = React.createRef();
