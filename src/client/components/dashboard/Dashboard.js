@@ -36,11 +36,11 @@ export default function Dashboard() {
     // Send post request to API with new product
     api
       .post("/api/products", product)
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res);
+        getProducts();
+      })
       .catch(err => console.log(err));
-
-    // Update state with the new product
-    setProducts([product, ...products]);
   };
 
   // Update products function
@@ -56,18 +56,17 @@ export default function Dashboard() {
     // Delete product from database
     api
       .delete(`api/products/${productId}`)
-      .then(res => console.log(res))
+      .then(res => {
+        getProducts();
+      })
       .catch(err => console.log(err));
-    // Rerender list with all products where id does not equal the id of deleted product
-    setProducts(products.filter(product => product._id !== productId));
   };
 
   const addSpecial = special => {
     api
       .post("/api/specials", special)
       .then(res => {
-        setSpecials([special, ...specials]);
-        console.log(res);
+        getSpecials();
       })
       .catch(err => console.log(err));
   };
@@ -75,13 +74,13 @@ export default function Dashboard() {
   const updateSpecial = () => {};
 
   const deleteSpecial = specialId => {
+    console.log(specialId);
     api
       .delete(`/api/specials/${specialId}`)
       .then(res => {
-        console.log(res);
+        getSpecials();
       })
       .catch(err => console.log(err));
-    setSpecials(specials.filter(special => special._id !== specialId));
   };
 
   return (
