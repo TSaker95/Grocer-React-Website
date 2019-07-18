@@ -1,14 +1,13 @@
 import React from "react";
 import { api } from "../api";
+import { Router, Redirect } from "react-router-dom";
 
-export default function Login() {
+export default function Login(props) {
   const usernameRef = React.createRef();
   const passwordRef = React.createRef();
 
   const submitLogin = e => {
-    console.log("here");
     // Login function
-
     e.preventDefault();
 
     const username = usernameRef.current.value;
@@ -16,8 +15,13 @@ export default function Login() {
 
     api
       .post("api/auth/login", { username, password }, { withCredentials: true })
-      .then(res => console.log(res.status))
-      .catch(err => console.log(err));
+      .then(res => {
+        console.log(res.status);
+        if (res.status === 200) props.history.push("/dashboard");
+      })
+      .catch(err => {
+        if (err.response.status === 401) alert("Incorrect login information.");
+      });
   };
 
   return (
