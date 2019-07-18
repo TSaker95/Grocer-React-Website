@@ -1,24 +1,23 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const UserSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true }
 });
 
-UserSchema.pre('save', function hash(next) {
-  if (this.isNew || this.isModified('password')) {
+UserSchema.pre("save", function hash(next) {
+  if (this.isNew || this.isModified("password")) {
     // Saving reference to this because of changing scopes
     const document = this;
-    bcrypt.hash(document.password, 10,
-      (err, hashedPassword) => {
-        if (err) {
-          next(err);
-        } else {
-          document.password = hashedPassword;
-          next();
-        }
-      });
+    bcrypt.hash(document.password, 10, (err, hashedPassword) => {
+      if (err) {
+        next(err);
+      } else {
+        document.password = hashedPassword;
+        next();
+      }
+    });
   } else {
     next();
   }
@@ -34,4 +33,4 @@ UserSchema.methods.checkPassword = function checkPassword(password, callback) {
   });
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);

@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.json());
 
