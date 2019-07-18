@@ -9,15 +9,17 @@ router.route("/").get((req, res) => {
     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
-// @route POST api/products/add
+// @route POST api/products/
 // @desc add new products
 router.route("/").post((req, res) => {
   const name = req.body.name;
   const description = req.body.description;
+  const price = req.body.price;
 
   const newProduct = new Product({
     name,
-    description
+    description,
+    price
   });
 
   // save new product to mongo db database
@@ -33,6 +35,25 @@ router.route("/:id").get((req, res) => {
   Product.findById(req.params.id)
     .then(product => res.json(product))
     .catch(err => res.status(400).json(`Error: ${err}`));
+});
+
+// @route PUT api/products/:id
+// @desc update product by id
+router.put("/:id", (req, res) => {
+  let productId = req.params.id;
+  let prevProduct = Product.find({ _id: productId });
+
+  let product = {
+    name: req.body.name || prevProduct.name,
+    description: req.body.description || prevProduct.description,
+    price: req.body.price || prevProduct.price
+  };
+
+  Product.findByIdAndUpdate(productId, product, (err, product) => {
+    if (err) throw err;
+
+    res.send(`Updated product: ${product.name}`);
+  });
 });
 
 // @route   DELETE api/products

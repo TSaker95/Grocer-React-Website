@@ -1,19 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import editIcon from "../../public/images/edit.svg";
+import deleteIcon from "../../public/images/delete.svg";
+import DeleteSpecialModal from "./modals/DeleteSpecialModal";
 
 export default function SpecialsItem(props) {
-  const findItemById = itemId => {
-    // Find the item from the database
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const handleOpenEditModal = () => {
+    setIsEditModalOpen(true);
   };
 
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const handleOpenDeleteModal = () => {
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleCloseDeleteModal = () => {
+    setIsDeleteModalOpen(false);
+  };
+
+  const parseDate = date => date.split("T")[0];
+
   return (
-    // const item = findItemById()
     <div className="specials-item list-row">
-      <p>{props.item._id}</p>
-      <p>Item normal price</p>
-      <p>Item sale price</p>
-      <p>23/02/1903</p>
-      <p>23/02/2903</p>
-      <p>Actions go here</p>
+      <p>{props.product.name}</p>
+      <p>${props.product.price}</p>
+      <p>Sale price</p>
+      <p>{parseDate(props.item.startDate)}</p>
+      <p>{parseDate(props.item.endDate)}</p>
+      {/* <p>{parseDateprops.item.startDate}</p>
+      <p>{props.item.endDate}</p> */}
+      <div className="icons">
+        <img src={editIcon} />
+        <img src={deleteIcon} onClick={handleOpenDeleteModal} />
+      </div>
+
+      <DeleteSpecialModal
+        isOpen={isDeleteModalOpen}
+        closeModal={handleCloseDeleteModal}
+        item={props.item}
+        deleteSpecial={props.deleteSpecial}
+      />
     </div>
   );
 }
