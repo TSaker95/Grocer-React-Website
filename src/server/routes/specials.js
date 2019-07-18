@@ -1,67 +1,69 @@
-const router = require("express").Router();
-let Special = require("../models/special.model"); // Import use model
+const router = require('express').Router();
+const Special = require('../models/special.model');
+const checkAuth = require('../middleware/check-auth');
 
 // @route GET api/specials
 // @desc get all specials
-router.route("/").get((req, res) => {
+router.route('/').get((req, res) => {
   Special.find()
     .then(specials => res.json(specials))
-    .catch(err => res.status(400).json(`Error: ${err}`));
+    .catch(err => res.status(400).json(err));
 });
+
+// @route GET api/specials/:id
+// @desc get special by id
+router.route('/:id').get((req, res) => {
+  Special.findById(req.params.id)
+    .then(special => res.json(special))
+    .catch(err => res.status(400).json(err));
+});
+
+// Using the checkAuth middleware here means only routes below require authentication.
+router.use(checkAuth);
 
 // @route POST api/specials/add
 // @desc add new specials
-router.route("/").post((req, res) => {
-  const productId = req.body.productId;
-  const startDate = req.body.startDate;
-  const endDate = req.body.endDate;
+router.route('/').post((req, res) => {
+  const { productId, startDate, endDate } = req.body;
 
   const newSpecial = new Special({
     productId,
     startDate,
-    endDate
+    endDate,
   });
 
   // save new special to mongo db database
   newSpecial
     .save()
-    .then(() => res.json("Special added."))
-    .catch(err => res.status(400).json(`Error: ${err}`));
-});
-
-// @route GET api/specials/:id
-// @desc get special by id
-router.route("/:id").get((req, res) => {
-  Special.findById(req.params.id)
-    .then(special => res.json(special))
-    .catch(err => res.status(400).json(`Error: ${err}`));
+    .then(() => res.json(newSpecial))
+    .catch(err => res.status(400).json(err));
 });
 
 // @route PUT api/specials/:id
 // @desc update special by id
-router.put("/:id", (req, res) => {
-  let specialId = req.params.id;
-  let previousSpecial = Special.find({ _id: specialId });
+router.put('/:id', (req, res) => {
+  const specialId = req.params.id;
+  const previousSpecial = Special.find({ _id: specialId });
 
-  let special = {
+  const special = {
     productId: req.body.productId || previousSpecial.productId,
     startDate: req.body.startDate || previousSpecial.startDate,
-    endDate: req.body.endDate || previousSpecial.endDate
+    endDate: req.body.endDate || previousSpecial.endDate,
   };
 
-  Special.findByIdAndUpdate(specialId, special, (err, special) => {
+  Special.findByIdAndUpdate(specialId, special, (err, updatedSpecial) => {
     if (err) throw err;
 
-    res.send(`Updated special: ${special}`);
+    res.json(updatedSpecial);
   });
 });
 
 // @route   DELETE api/specials
 // @desc    Delete a special
-router.delete("/:id", (req, res) => {
+router.delete('/:id', (req, res) => {
   Special.findById(req.params.id)
     .then(special => special.remove().then(() => res.json({ success: true })))
-    .catch(err => res.status(404).json({ success: false }));
+    .catch(err => res.status(404).json(err));
 });
 
 module.exports = router;
