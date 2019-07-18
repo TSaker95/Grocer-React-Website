@@ -18,11 +18,8 @@ export default function NewProductModal(props) {
       description: descRef.current.value
     };
 
-    // Simulate a wait period to write data to db - good for UX
-    setTimeout(() => {
-      props.addProduct(product);
-      props.closeModal();
-    }, 1400);
+    props.addProduct(product);
+    props.closeModal();
   };
 
   return (

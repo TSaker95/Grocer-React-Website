@@ -58,12 +58,7 @@ export default function DeleteProductModal(props) {
           </p>
           <button
             className="delete-product btn btn-danger"
-            onClick={() => {
-              setTimeout(() => {
-                props.closeModal;
-                props.deleteProduct(props.item._id);
-              }, 1000);
-            }}
+            onClick={() => props.deleteProduct(props.item._id)}
           >
             Delete product
           </button>

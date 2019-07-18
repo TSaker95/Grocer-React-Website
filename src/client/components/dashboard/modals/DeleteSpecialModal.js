@@ -58,12 +58,7 @@ export default function EditSpecialModal(props) {
           </p>
           <button
             className="delete-special btn btn-danger"
-            onClick={() => {
-              setTimeout(() => {
-                props.closeModal;
-                props.deleteSpecial(props.item._id);
-              }, 1000);
-            }}
+            onClick={() => props.deleteSpecial(props.item._id)}
           >
             Delete special
           </button>

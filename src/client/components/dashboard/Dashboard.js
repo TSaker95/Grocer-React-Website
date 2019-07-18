@@ -37,7 +37,6 @@ export default function Dashboard() {
     api
       .post("/api/products", product)
       .then(res => {
-        console.log(res);
         getProducts();
       })
       .catch(err => console.log(err));
@@ -53,7 +52,6 @@ export default function Dashboard() {
 
   // Delete products function
   const deleteProduct = productId => {
-    // Delete product from database
     api
       .delete(`api/products/${productId}`)
       .then(res => {
@@ -62,6 +60,7 @@ export default function Dashboard() {
       .catch(err => console.log(err));
   };
 
+  // Add specials function
   const addSpecial = special => {
     api
       .post("/api/specials", special)
@@ -71,10 +70,14 @@ export default function Dashboard() {
       .catch(err => console.log(err));
   };
 
-  const updateSpecial = () => {};
+  const updateSpecial = (prevSpecial, updatedSpecial) => {
+    api
+      .put(`/api/specials/${prevSpecial._id}`, updatedSpecial)
+      .then(res => getSpecials())
+      .catch(err => console.log(err));
+  };
 
   const deleteSpecial = specialId => {
-    console.log(specialId);
     api
       .delete(`/api/specials/${specialId}`)
       .then(res => {

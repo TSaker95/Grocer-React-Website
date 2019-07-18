@@ -19,11 +19,8 @@ export default function NewspecialModal(props) {
       endDate: endDateRef.current.value
     };
 
-    // Simulate a wait period to write data to db - good for UX
-    setTimeout(() => {
-      props.addSpecial(special);
-      props.closeModal();
-    }, 1400);
+    props.addSpecial(special);
+    props.closeModal();
   };
 
   return (

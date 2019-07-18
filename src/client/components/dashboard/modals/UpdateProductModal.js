@@ -50,11 +50,8 @@ export default function EditProductModal(props) {
       description: descRef.current.value || prevProduct.description
     };
 
-    // Simulate a wait period to write data to db - good for UX
-    setTimeout(() => {
-      props.updateProduct(props.item, product);
-      props.closeModal();
-    }, 1400);
+    props.updateProduct(props.item, product);
+    props.closeModal();
   };
 
   return (
