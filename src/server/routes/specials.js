@@ -7,7 +7,7 @@ const checkAuth = require('../middleware/check-auth');
 router.route('/').get((req, res) => {
   Special.find()
     .then(specials => res.json(specials))
-    .catch(err => res.status(400).json(`Error: ${err}`));
+    .catch(err => res.status(400).json(err));
 });
 
 // @route GET api/specials/:id
@@ -15,7 +15,7 @@ router.route('/').get((req, res) => {
 router.route('/:id').get((req, res) => {
   Special.findById(req.params.id)
     .then(special => res.json(special))
-    .catch(err => res.status(400).json(`Error: ${err}`));
+    .catch(err => res.status(400).json(err));
 });
 
 // Using the checkAuth middleware here means only routes below require authentication.
@@ -36,7 +36,7 @@ router.route('/').post((req, res) => {
   newSpecial
     .save()
     .then(() => res.json(newSpecial))
-    .catch(err => res.status(400).json(`Error: ${err}`));
+    .catch(err => res.status(400).json(err));
 });
 
 // @route PUT api/specials/:id
@@ -63,7 +63,7 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   Special.findById(req.params.id)
     .then(special => special.remove().then(() => res.json({ success: true })))
-    .catch(err => res.status(404).json({ success: false, error: err }));
+    .catch(err => res.status(404).json(err));
 });
 
 module.exports = router;

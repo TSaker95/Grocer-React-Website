@@ -12,7 +12,7 @@ router.route('/').post((req, res) => {
   newUser
     .save()
     .then(() => res.json(`User registered: ${email}`))
-    .catch(err => res.status(400).json(`Error: ${err}`));
+    .catch(err => res.status(400).json(err));
 });
 
 module.exports = router;
