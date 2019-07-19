@@ -3,10 +3,13 @@ import { api } from "../../api";
 import DashboardNavbar from "./DashboardNavbar";
 import ProductList from "./ProductList";
 import SpecialsList from "./SpecialsList";
+import { state } from "../AuthHandler";
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   const [products, setProducts] = useState([]);
   const [specials, setSpecials] = useState([]);
+
+  console.log(state);
 
   // Get the all products from the API
   const getProducts = () => {
@@ -86,7 +89,7 @@ export default function Dashboard() {
       .catch(err => console.log(err));
   };
 
-  return (
+  return state.isLoggedIn ? (
     <div className="container">
       <DashboardNavbar />
       <SpecialsList
@@ -102,5 +105,25 @@ export default function Dashboard() {
         updateProduct={updateProduct}
       />
     </div>
+  ) : (
+    props.history.push("/admin")
   );
+
+  // return (
+  //   <div className="container">
+  //     <DashboardNavbar />
+  //     <SpecialsList
+  //       specials={specials ? specials : []}
+  //       products={products ? products : []}
+  //       addSpecial={addSpecial}
+  //       deleteSpecial={deleteSpecial}
+  //     />
+  //     <ProductList
+  //       products={products ? products : []}
+  //       deleteProduct={deleteProduct}
+  //       addProduct={addProduct}
+  //       updateProduct={updateProduct}
+  //     />
+  //   </div>
+  // );
 }
