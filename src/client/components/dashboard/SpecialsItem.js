@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import editIcon from "../../public/images/edit.svg";
 import deleteIcon from "../../public/images/delete.svg";
 import DeleteSpecialModal from "./modals/DeleteSpecialModal";
+import UpdateSpecialModal from "./modals/UpdateSpecialModal";
 
 export default function SpecialsItem(props) {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -34,9 +35,16 @@ export default function SpecialsItem(props) {
       {/* <p>{parseDateprops.item.startDate}</p>
       <p>{props.item.endDate}</p> */}
       <div className="icons">
-        <img src={editIcon} />
+        <img src={editIcon} onClick={handleOpenEditModal} />
         <img src={deleteIcon} onClick={handleOpenDeleteModal} />
       </div>
+
+      <UpdateSpecialModal
+        isOpen={isEditModalOpen}
+        closeModal={handleCloseEditModal}
+        item={props.item}
+        updateSpecial={props.updateSpecial}
+      />
 
       <DeleteSpecialModal
         isOpen={isDeleteModalOpen}

@@ -42,6 +42,7 @@ export default function SpecialsList(props) {
                 })}
                 key={special._id}
                 deleteSpecial={props.deleteSpecial}
+                updateSpecial={props.updateSpecial}
               />
             ))
           ) : (
