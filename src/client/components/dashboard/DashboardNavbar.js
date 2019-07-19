@@ -1,7 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import { state, setState } from "../AuthHandler";
 
-export default function DashboardNavbar() {
+export default function DashboardNavbar(props) {
+  const handleLogout = () => {
+    localStorage.setItem("isLoggedIn", false);
+    setState({ isLoggedIn: localStorage.getItem("isLoggedIn") });
+    // props.props.history.push("/login");
+    <Redirect to="/login" />;
+  };
+
   return (
     <nav className="dashboard-nav">
       <h2>LOGO</h2>
@@ -12,7 +20,7 @@ export default function DashboardNavbar() {
         <Link to="/specials" className="nav-link">
           Specials
         </Link>
-        <Link to="/" className="nav-link">
+        <Link to="/" className="nav-link" onClick={handleLogout}>
           Logout
         </Link>
       </div>
