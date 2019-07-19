@@ -92,4 +92,22 @@ describe('Product router responds correctly to valid requests', () => {
     // expect(testProduct.price).toEqual(123);
     // expect(testProduct.description).toEqual('Sieze the day!');
   });
+
+  it('Delets a product in response to DELETE "/:id"', async () => {
+    const testProduct = await Product.create({
+      name: 'Delete Me',
+      description: 'Not long for this world.',
+      price: 11,
+    });
+
+    const productCountBeforeDelete = await Product.count();
+
+    const res = await request(app)
+      .delete(`/api/products/${testProduct._id}`);
+
+    const productCountAfterDelete = await Product.count();
+
+    expect(res.status).toEqual(200);
+    expect(productCountBeforeDelete).toBeCloseTo(productCountAfterDelete + 1);
+  });
 });
