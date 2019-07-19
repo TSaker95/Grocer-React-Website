@@ -4,12 +4,11 @@ import DashboardNavbar from "./DashboardNavbar";
 import ProductList from "./ProductList";
 import SpecialsList from "./SpecialsList";
 import { state } from "../AuthHandler";
+import { Redirect } from "react-router-dom";
 
 export default function Dashboard(props) {
   const [products, setProducts] = useState([]);
   const [specials, setSpecials] = useState([]);
-
-  console.log(state);
 
   // Get the all products from the API
   const getProducts = () => {
@@ -89,9 +88,9 @@ export default function Dashboard(props) {
       .catch(err => console.log(err));
   };
 
-  return state.isLoggedIn ? (
+  return state.isLoggedIn === "true" ? (
     <div className="container">
-      <DashboardNavbar />
+      <DashboardNavbar props={props} />
       <SpecialsList
         specials={specials ? specials : []}
         products={products ? products : []}
@@ -106,24 +105,6 @@ export default function Dashboard(props) {
       />
     </div>
   ) : (
-    props.history.push("/admin")
+    <Redirect to="/login" />
   );
-
-  // return (
-  //   <div className="container">
-  //     <DashboardNavbar />
-  //     <SpecialsList
-  //       specials={specials ? specials : []}
-  //       products={products ? products : []}
-  //       addSpecial={addSpecial}
-  //       deleteSpecial={deleteSpecial}
-  //     />
-  //     <ProductList
-  //       products={products ? products : []}
-  //       deleteProduct={deleteProduct}
-  //       addProduct={addProduct}
-  //       updateProduct={updateProduct}
-  //     />
-  //   </div>
-  // );
 }

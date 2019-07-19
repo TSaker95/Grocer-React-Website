@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import "./styles/styles.css";
 
 import AuthHandlerHOC, { state } from "./components/AuthHandler";
@@ -39,8 +33,7 @@ const Routes = () => (
       <br />
       <Route path="/" exact component={Main} />
       <Route path="/login" exact component={Login} />
-      {/* <Route path="/dashboard" component={Dashboard} /> */}
-      <PrivateRoute path="/dashboard" component={Dashboard} />
+      <PrivateRoute path="/dashboard" exact component={Dashboard} />
     </React.Fragment>
   </Router>
 );

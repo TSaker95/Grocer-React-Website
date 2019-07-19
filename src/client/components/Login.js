@@ -8,7 +8,6 @@ export default function Login(props) {
   const passwordRef = React.createRef();
 
   const submitLogin = e => {
-    // Login function
     e.preventDefault();
 
     const username = usernameRef.current.value;
@@ -27,7 +26,7 @@ export default function Login(props) {
       });
   };
 
-  return state.isLoggedIn ? (
+  return state.isLoggedIn === "true" ? (
     <Redirect to="/dashboard" />
   ) : (
     <div className="login-form-container">
