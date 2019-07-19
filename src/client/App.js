@@ -30,7 +30,6 @@ function PrivateRoute({ component: Component, ...rest }) {
 const Routes = () => (
   <Router>
     <React.Fragment>
-      <br />
       <Route path="/" exact component={Main} />
       <Route path="/login" exact component={Login} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />

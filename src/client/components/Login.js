@@ -33,26 +33,24 @@ export default function Login(props) {
     <div className="login-page">
       <div className="login-form-container">
         <div className="login-form-content">
+          <h3>Welcome</h3>
           <form className="login-form form" onSubmit={submitLogin}>
-            <label htmlFor="username">
-              Username
-              <input
-                name="username"
-                ref={usernameRef}
-                type="text"
-                placeholder="Username"
-              />
-            </label>
+            <input
+              name="username"
+              required
+              ref={usernameRef}
+              type="text"
+              placeholder="Username"
+            />
             <input
               name="password"
+              required
               ref={passwordRef}
               type="password"
               placeholder="Password"
             />
-            <button type="submit">Login</button>
+            <button type="submit">Sign in</button>
           </form>
-
-          <button>Close </button>
         </div>
       </div>
     </div>
