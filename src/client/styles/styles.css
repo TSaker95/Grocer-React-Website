@@ -39,6 +39,15 @@
   padding: 1%;
 }
 
+.navlogo:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  opacity: 1000;
+  -webkit-box-shadow: 10px 10px 100px white;
+          box-shadow: 10px 10px 100px white;
+  overflow: hidden;
+}
+
 .nav1 {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,11 +63,37 @@
   border-style: solid;
   border-width: 1px;
   font-size: 2rem;
+  background-color: #333;
+}
+
+.navtext {
+  border: #fcfcfc;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0% 2% 0% 2%;
+  text-align: center;
+  background-color: rgba(2, 2, 2, 0.37);
+}
+
+.navtext p {
+  color: white;
+}
+
+.navtext:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  opacity: 1000;
+  -webkit-box-shadow: 10px 10px 100px white;
+          box-shadow: 10px 10px 100px white;
+  overflow: hidden;
 }
 
 .pagemargin {
   margin: 0% 10% 0% 10%;
   background-color: white;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .hpsection {
@@ -97,14 +132,20 @@
   background-color: white;
   width: 100%;
   text-align: center;
+  background-color: #333;
 }
 
-.navtext {
-  border: white;
-  border-style: solid;
-  border-width: 1px;
-  padding: 2%;
-  text-align: center;
+.hpsectiond:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  opacity: 1000;
+  -webkit-box-shadow: 10px 10px 100px white;
+          box-shadow: 10px 10px 100px white;
+  overflow: hidden;
+}
+
+.hpsectiond h1 {
+  color: white;
 }
 
 .SectionA {
@@ -182,6 +223,11 @@
   padding: 2%;
   text-align: center;
   font-size: 1rem;
+  background-color: rgba(2, 2, 2, 0.37);
+}
+
+.footertext p {
+  color: white;
 }
 
 .foot1 {
@@ -198,6 +244,7 @@
   border: rgba(233, 229, 229, 0.753);
   border-style: solid;
   border-width: 1px;
+  background-color: #333;
 }
 
 .footlogo {
@@ -215,6 +262,15 @@
   padding: 1%;
 }
 
+.footlogo:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  opacity: 1000;
+  -webkit-box-shadow: 10px 10px 100px white;
+          box-shadow: 10px 10px 100px white;
+  overflow: hidden;
+}
+
 .footerstuff {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -227,6 +283,11 @@
   width: 33.3%;
   font-size: 1rem;
   margin: 1%;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #d3d0d0;
 }
 
 @media only screen and (max-width: 700px) {

@@ -8,23 +8,35 @@ class Footer extends Component {
         <div>
           <ul className="foot1">
             <li className="footertext">
-              <a href="#">Product</a>
+              <a href="#">
+                <p> Product </p>
+              </a>
             </li>
             <li className="footertext">
-              <a href="#">Features</a>
+              <a href="#">
+                <p>Features </p>
+              </a>
             </li>
 
             <li className="footertext">
-              <a href="#">Resources</a>
+              <a href="#">
+                <p>Resources</p>
+              </a>
             </li>
             <li className="footertext">
-              <a href="#">About</a>
+              <a href="#">
+                <p> About</p>
+              </a>
             </li>
             <li className="footertext">
-              <a href="#">Blog</a>
+              <a href="#">
+                <p>Blog </p>
+              </a>
             </li>
             <li className="footertext">
-              <a href="#">Support</a>
+              <a href="#">
+                <p>Support </p>
+              </a>
             </li>
           </ul>
         </div>
@@ -34,11 +46,15 @@ class Footer extends Component {
             <p id="P1">&copy; Hillsdon Grocer 2019 </p>
           </div>
           <div className="footerstuff">
-            <li className="footlogo">
-              <img src={logo} alt="logo" />
-            </li>
+            <a href="#top">
+              <li className="footlogo">
+                <img src={logo} alt="logo" />
+              </li>
+            </a>
           </div>
-          <div className="footerstuff"> Made by RMT </div>
+          <div className="footerstuff">
+            Made by RMT <br /> <br />
+          </div>
         </div>
       </footer>
     );

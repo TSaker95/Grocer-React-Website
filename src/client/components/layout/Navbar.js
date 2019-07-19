@@ -12,24 +12,24 @@ export default function Navbar() {
       <div>
         <ul className="nav1">
           <li className="navtext">
-            <a href="#">
-              Our Range <h1> </h1>
+            <a href="#Range">
+              <p> Our Range </p>
             </a>
           </li>
           <li className="navtext">
-            <a href="#">
-              Find Us <h1> </h1>
+            <a href="#Findus">
+              <p> Find Us</p>
             </a>
           </li>
 
           <li className="navtext">
-            <a href="#">
-              Specials<h1> </h1>
+            <a href="#Specials">
+              <p>Specials </p>
             </a>
           </li>
           <li className="navtext">
-            <a href="#">
-              Get In Touch<h1> </h1>
+            <a href="#Findus">
+              <p> Get In Touch </p>
             </a>
           </li>
         </ul>
