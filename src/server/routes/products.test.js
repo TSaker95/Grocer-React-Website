@@ -27,22 +27,6 @@ afterAll(async () => {
 });
 
 describe('Product router responds correctly to valid requests', () => {
-  it('Creates a product in response to POST "/"', async () => {
-    const newProduct = {
-      name: 'Cheese',
-      description: 'Favoured by Wallace and Gromit',
-      price: 1.55,
-    };
-
-    const res = await request(app)
-      .post('/api/products/')
-      .send(newProduct)
-      .set('Accept', 'application/json');
-
-    expect(res.status).toEqual(200);
-    expect(res.body).toMatchObject(newProduct);
-  });
-
   it('Returns all products in response to GET "/"', async () => {
     const allProducts = await Product.find();
 
@@ -63,5 +47,50 @@ describe('Product router responds correctly to valid requests', () => {
 
     expect(res.status).toEqual(200);
     expect(JSON.stringify(res.body)).toEqual(JSON.stringify(foundProduct));
+  });
+
+  it('Creates a product in response to POST "/"', async () => {
+    const newProduct = {
+      name: 'Cheese',
+      description: 'Favoured by Wallace and Gromit',
+      price: 1.55,
+    };
+
+    const res = await request(app)
+      .post('/api/products/')
+      .send(newProduct)
+      .set('Accept', 'application/json');
+
+    expect(res.status).toEqual(200);
+    expect(res.body).toMatchObject(newProduct);
+  });
+
+  it('Updates a product in response to PUT "/:id"', async () => {
+    const testProduct = await Product.create({
+      name: 'Carpe Diem',
+      description: 'Catch of the day',
+      price: 2000,
+    });
+
+    console.log(testProduct);
+
+    const newDetails = {
+      price: 123,
+      description: 'Sieze the day!',
+    };
+
+    request(app)
+      .put(`/api/products/${testProduct._id}`)
+      .send(newDetails)
+      .set('Accept', 'application/json')
+      .then((res, err) => {
+        expect(res.status).toEqual(200);
+        expect(testProduct.name).toEqual('Carpe Diem');
+        expect(testProduct.price).toEqual(123);
+        expect(testProduct.description).toEqual('Sieze the day!');
+      });
+
+    // console.log(testProduct);
+    // console.log(res);
   });
 });
