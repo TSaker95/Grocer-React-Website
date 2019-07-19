@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
@@ -9,6 +9,6 @@ const specialSchema = new Schema({
   salePrice: { type: Number, required: false },
 });
 
-const Special = mongoose.model("Special", specialSchema);
+const Special = mongoose.model('Special', specialSchema);
 
 module.exports = Special;
