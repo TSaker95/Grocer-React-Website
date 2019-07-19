@@ -41,9 +41,9 @@ router.route('/').post((req, res) => {
 
 // @route PUT api/products/:id
 // @desc update product by id
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   const productId = req.params.id;
-  const prevProduct = Product.find({ _id: productId });
+  const prevProduct = (await Product.find({ _id: productId }))[0];
 
   const newDetails = {
     name: req.body.name || prevProduct.name,

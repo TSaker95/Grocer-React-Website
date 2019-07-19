@@ -41,17 +41,17 @@ router.route('/').post((req, res) => {
 
 // @route PUT api/specials/:id
 // @desc update special by id
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   const specialId = req.params.id;
-  const previousSpecial = Special.find({ _id: specialId });
+  const previousSpecial = await (Special.find({ _id: specialId }))[0];
 
-  const special = {
+  const newDetails = {
     productId: req.body.productId || previousSpecial.productId,
     startDate: req.body.startDate || previousSpecial.startDate,
     endDate: req.body.endDate || previousSpecial.endDate,
   };
 
-  Special.findByIdAndUpdate(specialId, special, (err, updatedSpecial) => {
+  Special.findByIdAndUpdate(specialId, newDetails, (err, updatedSpecial) => {
     if (err) throw err;
 
     res.json(updatedSpecial);
