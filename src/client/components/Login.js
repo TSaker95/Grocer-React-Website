@@ -8,6 +8,10 @@ export default function Login(props) {
   const passwordRef = React.createRef();
 
   const submitLogin = e => {
+<<<<<<< HEAD
+=======
+    // Login function
+>>>>>>> auth-integration
     e.preventDefault();
 
     const username = usernameRef.current.value;
