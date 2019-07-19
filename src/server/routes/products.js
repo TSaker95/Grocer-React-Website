@@ -1,10 +1,10 @@
-const router = require("express").Router();
-const Product = require("../models/product.model");
-const checkAuth = require("../middleware/check-auth");
+const router = require('express').Router();
+const Product = require('../models/product.model');
+const checkAuth = require('../middleware/check-auth');
 
 // @route GET api/products
 // @desc get all products
-router.route("/").get((req, res) => {
+router.route('/').get((req, res) => {
   Product.find()
     .then(products => res.json(products))
     .catch(err => res.status(400).json(err));
@@ -12,7 +12,7 @@ router.route("/").get((req, res) => {
 
 // @route GET api/products/:id
 // @desc get product by id
-router.route("/:id").get((req, res) => {
+router.route('/:id').get((req, res) => {
   Product.findById(req.params.id)
     .then(product => res.json(product))
     .catch(err => res.status(400).json(err));
@@ -23,7 +23,7 @@ router.use(checkAuth);
 
 // @route POST api/products/add
 // @desc add new products
-router.route("/").post((req, res) => {
+router.route('/').post((req, res) => {
   const { name, description, price } = req.body;
 
   const newProduct = new Product({
@@ -45,13 +45,13 @@ router.put('/:id', (req, res) => {
   const productId = req.params.id;
   const prevProduct = Product.find({ _id: productId });
 
-  const product = {
+  const newDetails = {
     name: req.body.name || prevProduct.name,
     description: req.body.description || prevProduct.description,
     price: req.body.price || prevProduct.price,
   };
 
-  Product.findByIdAndUpdate(productId, product, (err, updatedProduct) => {
+  Product.findByIdAndUpdate(productId, newDetails, (err, updatedProduct) => {
     if (err) throw err;
 
     res.json(updatedProduct);
@@ -60,7 +60,7 @@ router.put('/:id', (req, res) => {
 
 // @route   DELETE api/products
 // @desc    Delete an item
-router.delete("/:id", (req, res) => {
+router.delete('/:id', (req, res) => {
   Product.findById(req.params.id)
     .then(product => product.remove().then(() => res.json({ success: true })))
     .catch(err => res.status(404).json(err));
