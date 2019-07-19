@@ -345,6 +345,46 @@ html {
   font-weight: 600;
 }
 
+.icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+}
+
+.icons img {
+  height: 20px;
+  width: auto;
+}
+
+.icons img:first-child {
+  margin-right: 1rem;
+}
+
+.section-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 3em;
+}
+
+.section-header .section-add-button {
+  background: none;
+  border: 2px solid #333;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-header .section-add-button:hover {
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
 .items-list .headings {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -386,11 +426,116 @@ html {
   width: 100%;
 }
 
-.specials-container .specials-list-content .specials-item p:first-child {
+.specials-container .specials-headings h5:last-child {
+  width: 30%;
+}
+
+.specials-list-content .specials-item p:first-child {
   width: 100%;
 }
 
 .products-container {
   margin-top: 5rem;
+}
+
+.products-container .products-headings h5:nth-child(2) {
+  width: 100%;
+}
+
+.products-container .products-headings h5:last-child {
+  width: 30%;
+}
+
+.products-container .products-item {
+  padding: 0rem 0;
+}
+
+.products-container .products-item p:nth-child(2) {
+  width: 100%;
+}
+
+.modal {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.modal .modal-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1.3em;
+}
+
+.modal .modal-title p {
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.modal .modal-title p:hover {
+  cursor: pointer;
+}
+
+.modal .modal-content,
+.modal .modal-footer {
+  padding: 20px;
+}
+
+.modal .modal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal .modal-footer .cancel-modal-action {
+  margin-right: 1em;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.modal .modal-footer .cancel-modal-action:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.delete-product-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.delete-product-modal .modal-footer {
+  height: 80px;
+  width: 100%;
+  background: #f7f7f7;
 }
 /*# sourceMappingURL=styles.css.map */

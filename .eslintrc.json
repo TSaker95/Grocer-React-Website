@@ -3,9 +3,17 @@
   "extends": ["airbnb"],
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "rules": {
     "no-console": "off",
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
+    "no-underscore-dangle": "off"
+  },
+  "globals": {
+    "jasmine": "writable"
   }
 }
