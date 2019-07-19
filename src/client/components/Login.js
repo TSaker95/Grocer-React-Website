@@ -1,6 +1,7 @@
 import React from "react";
 import { api } from "../api";
-import { Router, Redirect } from "react-router-dom";
+import { setState, state } from "./AuthHandler";
+import { Redirect } from "react-router-dom";
 
 export default function Login(props) {
   const usernameRef = React.createRef();
@@ -16,15 +17,19 @@ export default function Login(props) {
     api
       .post("api/auth/login", { username, password }, { withCredentials: true })
       .then(res => {
-        console.log(res.status);
-        if (res.status === 200) props.history.push("/dashboard");
+        localStorage.setItem("isLoggedIn", true);
+        setState({ isLoggedIn: localStorage.getItem("isLoggedIn") });
+        props.history.push("/dashboard");
       })
       .catch(err => {
+        console.log(err);
         if (err.response.status === 401) alert("Incorrect login information.");
       });
   };
 
-  return (
+  return state.isLoggedIn === "true" ? (
+    <Redirect to="/dashboard" />
+  ) : (
     <div className="login-form-container">
       <div className="login-form-content">
         <form className="login-form form" onSubmit={submitLogin}>
