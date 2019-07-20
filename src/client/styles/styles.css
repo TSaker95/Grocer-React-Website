@@ -21,6 +21,15 @@
   background: #2dbc4e;
 }
 
+.btn.btn-danger {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn.btn-danger:hover {
+  background: #e04b59;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -332,7 +341,7 @@
 }
 
 .modal .modal-footer .cancel-modal-action {
-  margin-right: 1em;
+  margin-right: 1.2em;
   font-size: 0.8em;
   font-weight: 700;
 }
@@ -352,7 +361,7 @@
           flex-direction: column;
 }
 
-.new-special-modal {
+.new-item-modal {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -366,14 +375,15 @@
           align-items: center;
 }
 
-.new-special-modal label {
+.new-item-modal label {
   display: block;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-.new-special-modal select,
-.new-special-modal input {
+.new-item-modal select,
+.new-item-modal input,
+.new-item-modal textarea {
   padding: 0.6rem;
   width: 300px;
   -webkit-box-sizing: border-box;
@@ -381,7 +391,7 @@
   margin-bottom: 1rem;
 }
 
-.new-special-modal .new-special-title {
+.new-item-modal .new-item-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -392,11 +402,11 @@
   margin-bottom: 2rem;
 }
 
-.new-special-modal .new-special-title p:hover {
+.new-item-modal .new-item-title p:hover {
   cursor: pointer;
 }
 
-.new-special-modal li:nth-child(4) {
+.new-item-modal li:nth-child(4) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -411,16 +421,16 @@
   font-weight: 700;
 }
 
-.new-special-modal li:nth-child(4) p:hover {
+.new-item-modal li:nth-child(4) p:hover {
   cursor: pointer;
   text-decoration: underline;
 }
 
-.new-special-modal li:nth-child(4) button {
+.new-item-modal li:nth-child(4) button {
   margin-left: 1.5rem;
 }
 
-.new-special-modal .new-special-footer {
+.new-item-modal .new-item-footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -436,13 +446,13 @@
   padding: 20px;
 }
 
-.new-special-modal .new-special-footer .cancel-modal-action {
+.new-item-modal .new-item-footer .cancel-modal-action {
   margin-right: 1em;
   font-size: 0.8em;
   font-weight: 700;
 }
 
-.new-special-modal .new-special-footer .cancel-modal-action:hover {
+.new-item-modal .new-item-footer .cancel-modal-action:hover {
   text-decoration: underline;
   cursor: pointer;
 }

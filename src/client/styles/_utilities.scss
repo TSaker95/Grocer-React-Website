@@ -21,11 +21,12 @@
     }
   }
 
-  // &.btn-danger {
-  //   @include set-background($dark-color);
+  &.btn-danger {
+    background: #dc3545;
+    color: #fff;
 
-  //   &:hover {
-  //     background: lighten($dark-color, 5%);
-  //   }
-  // }
+    &:hover {
+      background: lighten(#dc3545, 5%);
+    }
+  }
 }

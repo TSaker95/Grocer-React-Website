@@ -3,6 +3,7 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
+// New style definitions required for react-modal
 const styles = {
   overlay: {
     position: "fixed",
@@ -60,85 +61,13 @@ export default function NewspecialModal(props) {
       shouldReturnFocusAfterClose={true}
       style={styles}
     >
-      {/* <div className="new-special-modal modal">
-        <form className="new-special-form" onSubmit={addSpecial}>
-          <div className="modal-content">
-            <div className="modal-title">
-              <h4>Add special</h4>
-              <p onClick={props.closeModal}>X</p>
-            </div>
-
-            <label>
-              Product
-              <select name="product" required ref={productRef}>
-                {props.products.map(product => (
-                  <option value={product._id} key={product._id}>
-                    {product.name}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label htmlFor="start-date">
-              Start date
-              <input name="start-date" ref={startDateRef} type="date" />
-            </label>
-            <label htmlFor="end-date">
-              End date
-              <input name="end-date" ref={endDateRef} type="date" />
-            </label>
-          </div>
-          <div className="modal-footer">
-            <p onClick={props.closeModal} className="cancel-modal-action">
-              Cancel
-            </p>
-            <button className="btn btn-primary" type="submit">
-              Add special
-            </button>
-          </div>
-        </form>
-      </div> */}
-
-      {/* <div className="new-special-modal">
-        <form className="new-special-form" onSubmit={addSpecial}>
-          <div className="new-special-content">
-            <div className="new-special-title">
-              <h4>Add special</h4>
-              <p onClick={props.closeModal}>X</p>
-            </div>
-
-            <label>Product</label>
-            <select name="product" required ref={productRef}>
-              {props.products.map(product => (
-                <option value={product._id} key={product._id}>
-                  {product.name}
-                </option>
-              ))}
-            </select>
-
-            <label htmlFor="start-date">Start date</label>
-            <input name="start-date" ref={startDateRef} type="date" />
-
-            <label htmlFor="end-date">End date</label>
-            <input name="end-date" ref={endDateRef} type="date" />
-          </div>
-          <div className="new-special-footer">
-            <p onClick={props.closeModal} className="cancel-modal-action">
-              Cancel
-            </p>
-            <button className="btn btn-primary" type="submit">
-              Add special
-            </button>
-          </div>
-        </form>
-      </div> */}
-
-      <div className="new-special-modal">
-        <div className="new-special-title">
+      <div className="new-item-modal">
+        <div className="new-item-title">
           <h4>Add special</h4>
           <p onClick={props.closeModal}>X</p>
         </div>
         <form onSubmit={addSpecial}>
-          <ul className="new-special-form">
+          <ul className="new-item-form">
             <li>
               <label htmlFor="">Product</label>{" "}
               <select name="product" required ref={productRef}>
@@ -170,31 +99,4 @@ export default function NewspecialModal(props) {
       </div>
     </Modal>
   );
-}
-
-{
-  /* <form>
-<ul class="form-style-1">
-    <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="First" /> <input type="text" name="field2" class="field-divided" placeholder="Last" /></li>
-    <li>
-        <label>Email <span class="required">*</span></label>
-        <input type="email" name="field3" class="field-long" />
-    </li>
-    <li>
-        <label>Subject</label>
-        <select name="field4" class="field-select">
-        <option value="Advertise">Advertise</option>
-        <option value="Partnership">Partnership</option>
-        <option value="General Question">General</option>
-        </select>
-    </li>
-    <li>
-        <label>Your Message <span class="required">*</span></label>
-        <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
-    </li>
-    <li>
-        <input type="submit" value="Submit" />
-    </li>
-</ul>
-</form> */
 }

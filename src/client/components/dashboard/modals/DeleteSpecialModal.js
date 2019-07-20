@@ -3,6 +3,7 @@ import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
+// New style definitions required for react-modal
 const styles = {
   overlay: {
     position: "fixed",
