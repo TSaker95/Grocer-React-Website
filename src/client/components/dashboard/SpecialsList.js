@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import SpecialsItem from "./SpecialsItem";
 import NewSpecialModal from "./modals/NewSpecialModal";
+import PropTypes from "prop-types";
 
-export default function SpecialsList(props) {
+const SpecialsList = props => {
   const [isNewspecialModalOpen, setIsNewspecialModalOpen] = useState(false);
   const handleOpenNewSpecialModal = () => {
     setIsNewspecialModalOpen(true);
@@ -59,4 +60,14 @@ export default function SpecialsList(props) {
       />
     </div>
   );
-}
+};
+
+SpecialsList.propTypes = {
+  addSpecial: PropTypes.func.isRequired,
+  deleteSpecial: PropTypes.func.isRequired,
+  updateSpecial: PropTypes.func.isRequired,
+  products: PropTypes.array.isRequired,
+  specials: PropTypes.array
+};
+
+export default SpecialsList;

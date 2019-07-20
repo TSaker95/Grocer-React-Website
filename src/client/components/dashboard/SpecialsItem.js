@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+
 import editIcon from "../../public/images/edit.svg";
 import deleteIcon from "../../public/images/delete.svg";
 import DeleteSpecialModal from "./modals/DeleteSpecialModal";
 import UpdateSpecialModal from "./modals/UpdateSpecialModal";
 
-export default function SpecialsItem(props) {
+const SpecialsItem = props => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const handleOpenEditModal = () => {
     setIsEditModalOpen(true);
@@ -32,8 +34,6 @@ export default function SpecialsItem(props) {
       <p>Sale price</p>
       <p>{parseDate(props.item.startDate)}</p>
       <p>{parseDate(props.item.endDate)}</p>
-      {/* <p>{parseDateprops.item.startDate}</p>
-      <p>{props.item.endDate}</p> */}
       <div className="icons">
         <img src={editIcon} onClick={handleOpenEditModal} />
         <img src={deleteIcon} onClick={handleOpenDeleteModal} />
@@ -54,4 +54,13 @@ export default function SpecialsItem(props) {
       />
     </div>
   );
-}
+};
+
+SpecialsItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  product: PropTypes.object.isRequired,
+  updateSpecial: PropTypes.func.isRequired,
+  deleteSpecial: PropTypes.func.isRequired
+};
+
+export default SpecialsItem;

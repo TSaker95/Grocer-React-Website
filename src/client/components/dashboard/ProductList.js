@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
 import ProductItem from "./ProductItem";
 import NewProductModal from "./modals/NewProductModal.js";
 
-export default function ProductList(props) {
+const ProductList = props => {
   const [isNewProductModalOpen, setIsNewProductModalOpen] = useState(false);
   const handleOpenNewProductModal = () => {
     setIsNewProductModalOpen(true);
@@ -53,4 +55,13 @@ export default function ProductList(props) {
       />
     </div>
   );
-}
+};
+
+ProductList.propTypes = {
+  products: PropTypes.array.isRequired,
+  addProduct: PropTypes.func.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
+  updateProduct: PropTypes.func.isRequired
+};
+
+export default ProductList;

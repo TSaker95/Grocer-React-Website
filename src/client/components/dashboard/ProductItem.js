@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import ReactModal from "react-modal";
+import PropTypes from "prop-types";
+
 import placeholder from "../../public/images/placeholder.png";
 import editIcon from "../../public/images/edit.svg";
 import deleteIcon from "../../public/images/delete.svg";
 import DeleteProductModal from "./modals/DeleteProductModal";
 import UpdateProductModal from "./modals/UpdateProductModal";
 
-export default function ProductItem(props) {
+const ProductItem = props => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const handleOpenEditModal = () => {
     setIsEditModalOpen(true);
@@ -52,4 +53,12 @@ export default function ProductItem(props) {
       />
     </div>
   );
-}
+};
+
+ProductItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
+  updateProduct: PropTypes.func.isRequired
+};
+
+export default ProductItem;
