@@ -41,7 +41,7 @@ export default function EditSpecialModal(props) {
       shouldReturnFocusAfterClose={true}
       style={styles}
     >
-      <div className="delete-special-modal modal">
+      <div className="delete-modal modal">
         <div className="modal-content">
           <div className="modal-title">
             <h4>Delete special </h4>

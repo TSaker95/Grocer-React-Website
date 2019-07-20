@@ -1,3 +1,26 @@
+.btn {
+  display: inline-block;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  font-weight: 600;
+  outline: none;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.btn.btn-primary {
+  background: #28a745;
+  color: #fff;
+}
+
+.btn.btn-primary:hover {
+  background: #2dbc4e;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -303,6 +326,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: 80px;
+  width: 100%;
+  background: #f7f7f7;
 }
 
 .modal .modal-footer .cancel-modal-action {
@@ -326,7 +352,102 @@
           flex-direction: column;
 }
 
-.delete-product-modal {
+.new-special-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.new-special-modal label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.new-special-modal select,
+.new-special-modal input {
+  padding: 0.6rem;
+  width: 300px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.new-special-modal .new-special-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 300px;
+  margin-bottom: 2rem;
+}
+
+.new-special-modal .new-special-title p:hover {
+  cursor: pointer;
+}
+
+.new-special-modal li:nth-child(4) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.new-special-modal li:nth-child(4) p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.new-special-modal li:nth-child(4) button {
+  margin-left: 1.5rem;
+}
+
+.new-special-modal .new-special-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80px;
+  width: 100%;
+  background: #f7f7f7;
+  padding: 20px;
+}
+
+.new-special-modal .new-special-footer .cancel-modal-action {
+  margin-right: 1em;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.new-special-modal .new-special-footer .cancel-modal-action:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.delete-modal {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -337,11 +458,5 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-}
-
-.delete-product-modal .modal-footer {
-  height: 80px;
-  width: 100%;
-  background: #f7f7f7;
 }
 /*# sourceMappingURL=styles.css.map */

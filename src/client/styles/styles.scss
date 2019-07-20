@@ -1,5 +1,5 @@
 // @import 'config';
-// @import 'utilities';
+@import 'utilities';
 
 * {
     margin: 0;
@@ -265,6 +265,9 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        height: 80px;
+        width: 100%;
+        background: hsl(0%, 0%, 97%);
 
         .cancel-modal-action {
             margin-right: 1em;
@@ -284,21 +287,86 @@
     }
 }
 
-// Edit product modal
+.new-special-modal {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
 
+    label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
 
-.edit-product-modal {
-    // border-top: 6px solid #40A4F4;
+    select,
+    input {
+        padding: 0.6rem;
+        width: 300px;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+
+    .new-special-title {
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+        margin-bottom: 2rem;
+
+        p:hover {
+            cursor: pointer;
+        }
+    }
+
+    li:nth-child(4) {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 1rem;
+        font-size: 0.8em;
+        font-weight: 700;
+
+        p:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        button {
+            margin-left: 1.5rem;
+        }
+    }
+
+    .new-special-footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 80px;
+        width: 100%;
+        background: hsl(0%, 0%, 97%);
+        padding: 20px;
+
+        .cancel-modal-action {
+            margin-right: 1em;
+            font-size: 0.8em;
+            font-weight: 700;
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
-.delete-product-modal {
+
+// Edit product modal
+
+.edit-product-modal {}
+
+// Delete modal
+
+.delete-modal {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    .modal-footer {
-        height: 80px;
-        width: 100%;
-        background: hsl(0%, 0%, 97%),
-    }
 }

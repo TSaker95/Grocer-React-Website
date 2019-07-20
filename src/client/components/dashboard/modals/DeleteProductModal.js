@@ -41,7 +41,7 @@ export default function DeleteProductModal(props) {
       shouldReturnFocusAfterClose={true}
       style={styles}
     >
-      <div className="delete-product-modal modal">
+      <div className="delete-modal modal">
         <div className="modal-content">
           <div className="modal-title">
             <h4>Delete product </h4>
