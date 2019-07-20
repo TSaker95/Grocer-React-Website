@@ -78,6 +78,43 @@ export default function UpdateSpecialtModal(props) {
 
         <button onClick={props.closeModal}>Close {props.item.name}</button>
       </div>
+
+      {/* <div className="new-item-modal">
+        <div className="new-item-title">
+          <h4>Update special</h4>
+          <p onClick={props.closeModal}>X</p>
+        </div>
+        <form onSubmit={updateSpecial}>
+          <ul className="new-item-form">
+            <li>
+              <label htmlFor="">Price</label>
+              <select name="price" required ref={priceRef}>
+                {props.products.map(product => (
+                  <option value={product._id} key={product._id}>
+                    {product.name}
+                  </option>
+                ))}
+              </select>
+            </li>
+            <li>
+              <label htmlFor="start-date">Start date</label>
+              <input name="start-date" ref={startDateRef} type="date" />
+            </li>
+            <li>
+              <label htmlFor="end-date">End date</label>
+              <input name="end-date" ref={endDateRef} type="date" />
+            </li>
+            <li>
+              <p onClick={props.closeModal} className="cancel-modal-action">
+                Cancel
+              </p>
+              <button className="btn btn-primary" type="submit">
+                Add special
+              </button>
+            </li>
+          </ul>
+        </form>
+      </div> */}
     </Modal>
   );
 }
