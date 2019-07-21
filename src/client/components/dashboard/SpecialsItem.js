@@ -31,7 +31,7 @@ const SpecialsItem = props => {
     <div className="specials-item list-row">
       <p>{props.product.name}</p>
       <p>${props.product.price}</p>
-      <p>Sale price</p>
+      <p>${props.item.salePrice}</p>
       <p>{parseDate(props.item.startDate)}</p>
       <p>{parseDate(props.item.endDate)}</p>
       <div className="icons">

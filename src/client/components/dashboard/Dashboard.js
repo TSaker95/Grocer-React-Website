@@ -73,7 +73,6 @@ export default function Dashboard(props) {
   };
 
   const updateSpecial = (prevSpecial, updatedSpecial) => {
-    console.log(prevSpecial);
     api
       .put(`/api/specials/${prevSpecial._id}`, updatedSpecial)
       .then(res => getSpecials())

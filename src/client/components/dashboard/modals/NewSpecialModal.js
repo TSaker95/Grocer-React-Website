@@ -19,7 +19,7 @@ const styles = {
     border: "1px solid #ccc",
     borderTop: "6px solid #40A4F4",
     width: "350px",
-    height: "390px",
+    height: "480px",
     margin: "auto",
     top: "40px",
     left: "40px",
@@ -36,6 +36,7 @@ const styles = {
 
 const NewSpecialModal = props => {
   const productRef = React.createRef();
+  const salePriceRef = React.createRef();
   const startDateRef = React.createRef();
   const endDateRef = React.createRef();
 
@@ -46,6 +47,7 @@ const NewSpecialModal = props => {
     // Construct the special
     const special = {
       productId: productRef.current.value,
+      salePrice: salePriceRef.current.value,
       startDate: startDateRef.current.value,
       endDate: endDateRef.current.value
     };
@@ -80,13 +82,21 @@ const NewSpecialModal = props => {
               </select>
             </li>
             <li>
-              <label htmlFor="start-date">Start date</label>
-              <input name="start-date" ref={startDateRef} type="date" />
+              <label htmlFor="sale-price">Sale price</label>
+              <input
+                name="sale-price"
+                ref={salePriceRef}
+                type="number"
+                step="0.01"
+              />
             </li>
             <li>
+              <label htmlFor="start-date">Start date</label>
+              <input name="start-date" ref={startDateRef} type="date" />
               <label htmlFor="end-date">End date</label>
               <input name="end-date" ref={endDateRef} type="date" />
             </li>
+
             <li>
               <p onClick={props.closeModal} className="cancel-modal-action">
                 Cancel

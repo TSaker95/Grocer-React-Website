@@ -77,7 +77,8 @@ const UpdateSpecialModal = props => {
               <input
                 name="price"
                 ref={priceRef}
-                type="text"
+                type="number"
+                step="0.01"
                 placeholder="Sale price"
               />
             </li>
