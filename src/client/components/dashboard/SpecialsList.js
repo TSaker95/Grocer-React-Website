@@ -18,10 +18,10 @@ const SpecialsList = props => {
       <div className="section-header specials-header">
         <h3>Specials ({props.specials.length})</h3>
         <button
-          className="add-special-button section-add-button"
+          className="btn btn-large btn-primary"
           onClick={handleOpenNewSpecialModal}
         >
-          Add special +
+          + Add special
         </button>
       </div>
       <div className="specials-list items-list">

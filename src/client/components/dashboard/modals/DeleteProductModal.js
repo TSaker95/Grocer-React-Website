@@ -19,7 +19,7 @@ const styles = {
     border: "1px solid #ccc",
     borderTop: "6px solid #40A4F4",
     width: "500px",
-    height: "200px",
+    height: "220px",
     margin: "auto",
     top: "40px",
     left: "40px",

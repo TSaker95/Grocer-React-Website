@@ -18,10 +18,10 @@ const ProductList = props => {
       <div className="section-header products-header">
         <h3>Products ({props.products.length})</h3>
         <button
-          className="add-product-button section-add-button"
+          className="btn btn-large btn-primary"
           onClick={handleOpenNewProductModal}
         >
-          Add product +
+          + Add product
         </button>
       </div>
       <div className="products-list items-list">

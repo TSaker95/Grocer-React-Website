@@ -1,7 +1,7 @@
 .btn {
   display: inline-block;
   color: #333;
-  padding: 0.4rem 1.3rem;
+  padding: 0.6rem 1.3rem;
   border: none;
   cursor: pointer;
   font-size: 0.8rem;
@@ -11,6 +11,16 @@
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   border-radius: 5px;
+}
+
+.btn-large {
+  padding: 0.8rem 1.5rem;
+  color: red;
+}
+
+.btn-large:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 
 .btn.btn-primary {
