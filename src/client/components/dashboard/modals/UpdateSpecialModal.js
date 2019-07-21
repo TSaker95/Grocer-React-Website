@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
+// New style definitions required for reaat modal
 Modal.defaultStyles = {
   overlay: {
     position: "fixed",
@@ -32,7 +34,7 @@ Modal.defaultStyles = {
   }
 };
 
-export default function UpdateSpecialtModal(props) {
+const UpdateSpecialModal = props => {
   const priceRef = React.createRef();
   const startDateRef = React.createRef();
   const endDateRef = React.createRef();
@@ -117,4 +119,13 @@ export default function UpdateSpecialtModal(props) {
       </div> */}
     </Modal>
   );
-}
+};
+
+UpdateSpecialModal.propTypes = {
+  item: PropTypes.object.isRequired,
+  updateSpecial: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
+};
+
+export default UpdateSpecialModal;

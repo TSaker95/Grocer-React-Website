@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -33,7 +34,7 @@ const styles = {
   }
 };
 
-export default function NewspecialModal(props) {
+const NewSpecialModal = props => {
   const productRef = React.createRef();
   const startDateRef = React.createRef();
   const endDateRef = React.createRef();
@@ -99,4 +100,13 @@ export default function NewspecialModal(props) {
       </div>
     </Modal>
   );
-}
+};
+
+NewSpecialModal.propTypes = {
+  products: PropTypes.array.isRequired,
+  addSpecial: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
+};
+
+export default NewSpecialModal;

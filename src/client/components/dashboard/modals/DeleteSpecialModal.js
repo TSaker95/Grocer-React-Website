@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -33,7 +34,7 @@ const styles = {
   }
 };
 
-export default function EditSpecialModal(props) {
+const DeleteSpecialModal = props => {
   return (
     <Modal
       isOpen={props.isOpen}
@@ -67,4 +68,13 @@ export default function EditSpecialModal(props) {
       </div>
     </Modal>
   );
-}
+};
+
+DeleteSpecialModal.propTypes = {
+  item: PropTypes.object.isRequired,
+  deleteSpecial: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
+};
+
+export default DeleteSpecialModal;

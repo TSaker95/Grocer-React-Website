@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
@@ -33,7 +34,7 @@ const styles = {
   }
 };
 
-export default function NewProductModal(props) {
+const NewProductModal = props => {
   const nameRef = React.createRef();
   const priceRef = React.createRef();
   const descRef = React.createRef();
@@ -107,4 +108,12 @@ export default function NewProductModal(props) {
       </div>
     </Modal>
   );
-}
+};
+
+NewProductModal.propTypes = {
+  addProduct: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
+};
+
+export default NewProductModal;

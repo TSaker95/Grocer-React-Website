@@ -34,7 +34,7 @@ const styles = {
   }
 };
 
-export default function DeleteProductModal(props) {
+const DeleteProductModal = props => {
   return (
     <Modal
       isOpen={props.isOpen}
@@ -68,4 +68,13 @@ export default function DeleteProductModal(props) {
       </div>
     </Modal>
   );
-}
+};
+
+DeleteProductModal.propTypes = {
+  item: PropTypes.object.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
+};
+
+export default DeleteProductModal;

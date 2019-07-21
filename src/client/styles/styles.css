@@ -10,6 +10,7 @@
   outline: none;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
+  border-radius: 5px;
 }
 
 .btn.btn-primary {
