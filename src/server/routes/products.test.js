@@ -66,17 +66,16 @@ describe('Product router responds correctly to valid requests', () => {
   });
 
   it('Updates a product in response to PUT "/:id"', async () => {
-    const testProduct = await Product.create({
+    let testProduct = await Product.create({
       name: 'Carpe Diem',
-      description: 'Catch of the day',
+      description: 'Sieze the day!',
       price: 2000,
     });
 
-    console.log(testProduct);
-
     const newDetails = {
+      name: 'Veni, vidi, vici',
       price: 123,
-      description: 'Sieze the day!',
+      description: 'I came, I saw, I conquered',
     };
 
     const res = await request(app)
@@ -84,16 +83,39 @@ describe('Product router responds correctly to valid requests', () => {
       .send(newDetails)
       .set('Accept', 'application/json');
 
-    // console.log(testProduct);
-    // console.log(res);
+    // The product in memory doesn't update, so we get the product from the DB again.
+    testProduct = await Product.findById(testProduct._id);
 
     expect(res.status).toEqual(200);
-    // expect(testProduct.name).toEqual('Carpe Diem');
-    // expect(testProduct.price).toEqual(123);
-    // expect(testProduct.description).toEqual('Sieze the day!');
+    expect(testProduct.name).toEqual('Veni, vidi, vici');
+    expect(testProduct.price).toEqual(123);
+    expect(testProduct.description).toEqual('I came, I saw, I conquered');
   });
 
-  it('Delets a product in response to DELETE "/:id"', async () => {
+  it('Doesn\'t update details that aren\'t included in PUT "/:id"', async () => {
+    let testProduct = await Product.create({
+      name: 'Carpe Diem',
+      description: 'Sieze the day!',
+      price: 2000,
+    });
+
+    const newDetails = {};
+
+    const res = await request(app)
+      .put(`/api/products/${testProduct._id}`)
+      .send(newDetails)
+      .set('Accept', 'application/json');
+
+    // The product in memory doesn't update, so we get the product from the DB again.
+    testProduct = await Product.findById(testProduct._id);
+
+    expect(res.status).toEqual(200);
+    expect(testProduct.name).toEqual('Carpe Diem');
+    expect(testProduct.price).toEqual(2000);
+    expect(testProduct.description).toEqual('Sieze the day!');
+  });
+
+  it('Deletes a product in response to DELETE "/:id"', async () => {
     const testProduct = await Product.create({
       name: 'Delete Me',
       description: 'Not long for this world.',
