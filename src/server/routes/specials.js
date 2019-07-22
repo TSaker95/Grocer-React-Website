@@ -43,6 +43,7 @@ router.put('/:id', wrap(async (req, res) => {
     productId: req.body.productId || prevSpecial.productId,
     startDate: req.body.startDate || prevSpecial.startDate,
     endDate: req.body.endDate || prevSpecial.endDate,
+    salePrice: req.body.salePrice || prevSpecial.salePrice,
   };
 
   await Special.findByIdAndUpdate(specialId, newDetails);
