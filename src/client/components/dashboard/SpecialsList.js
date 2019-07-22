@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SpecialsItem from "./SpecialsItem";
 import NewSpecialModal from "./modals/NewSpecialModal";
 import PropTypes from "prop-types";
+import EmptyList from "./EmptyList";
 
 const SpecialsList = props => {
   const [isNewspecialModalOpen, setIsNewspecialModalOpen] = useState(false);
@@ -47,7 +48,7 @@ const SpecialsList = props => {
               />
             ))
           ) : (
-            <p>nothing</p>
+            <EmptyList type="specials" />
           )}
         </div>
       </div>

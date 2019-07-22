@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import ProductItem from "./ProductItem";
 import NewProductModal from "./modals/NewProductModal.js";
+import EmptyList from "./EmptyList";
 
 const ProductList = props => {
   const [isNewProductModalOpen, setIsNewProductModalOpen] = useState(false);
@@ -43,7 +44,7 @@ const ProductList = props => {
               />
             ))
           ) : (
-            <p>wow</p>
+            <EmptyList type="products" />
           )}
         </div>
       </div>
