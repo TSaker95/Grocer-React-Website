@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model'); // Import user model
-const checkAuth = require('../middleware/check-auth');
+const checkAuth = require('../middleware/checkAuth');
 
 // @route POST api/auth/login
 // @desc checks given username and password. Signs jwt token if correct

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Special = require('../models/special.model');
-const checkAuth = require('../middleware/check-auth');
+const checkAuth = require('../middleware/checkAuth');
 const wrap = require('../helpers/wrap');
 const sendError = require('../middleware/sendError');
 
