@@ -1,69 +1,62 @@
 const router = require('express').Router();
 const Special = require('../models/special.model');
 const checkAuth = require('../middleware/check-auth');
+const wrap = require('../helpers/wrap');
+const sendError = require('../middleware/sendError');
 
 // @route GET api/specials
 // @desc get all specials
-router.route('/').get((req, res) => {
-  Special.find()
-    .then(specials => res.json(specials))
-    .catch(err => res.status(400).json(err));
-});
+router.get('/', wrap(async (req, res) => {
+  const specials = await Special.find();
+  res.json(specials);
+}));
 
 // @route GET api/specials/:id
 // @desc get special by id
-router.route('/:id').get((req, res) => {
-  Special.findById(req.params.id)
-    .then(special => res.json(special))
-    .catch(err => res.status(400).json(err));
-});
+router.get('/:id', wrap(async (req, res) => {
+  const special = await Special.findById(req.params.id);
+  res.json(special);
+}));
 
 // Using the checkAuth middleware here means only routes below require authentication.
 router.use(checkAuth);
 
 // @route POST api/specials/add
-// @desc add new specials
-router.route('/').post((req, res) => {
-  const { productId, startDate, endDate } = req.body;
+// @desc add a new special
+router.post('/', wrap(async (req, res) => {
+  const { productID, startDate, endDate } = req.body;
 
-  const newSpecial = new Special({
-    productId,
-    startDate,
-    endDate,
-  });
+  const newSpecial = new Special({ productID, startDate, endDate });
 
   // save new special to mongo db database
-  newSpecial
-    .save()
-    .then(() => res.json(newSpecial))
-    .catch(err => res.status(400).json(err));
-});
+  await newSpecial.save();
+  res.json(newSpecial);
+}));
 
 // @route PUT api/specials/:id
 // @desc update special by id
-router.put('/:id', async (req, res) => {
+router.put('/:id', wrap(async (req, res) => {
   const specialId = req.params.id;
-  const previousSpecial = await (Special.find({ _id: specialId }))[0];
+  const prevSpecial = await Special.findOne({ _id: specialId });
 
   const newDetails = {
-    productId: req.body.productId || previousSpecial.productId,
-    startDate: req.body.startDate || previousSpecial.startDate,
-    endDate: req.body.endDate || previousSpecial.endDate,
+    productId: req.body.productId || prevSpecial.productId,
+    startDate: req.body.startDate || prevSpecial.startDate,
+    endDate: req.body.endDate || prevSpecial.endDate,
   };
 
-  Special.findByIdAndUpdate(specialId, newDetails, (err, updatedSpecial) => {
-    if (err) throw err;
-
-    res.json(updatedSpecial);
-  });
-});
+  await Special.findByIdAndUpdate(specialId, newDetails);
+  const updatedSpecial = await Special.findOne({ _id: specialId });
+  res.json(updatedSpecial);
+}));
 
 // @route   DELETE api/specials
-// @desc    Delete a special
-router.delete('/:id', (req, res) => {
-  Special.findById(req.params.id)
-    .then(special => special.remove().then(() => res.json({ success: true })))
-    .catch(err => res.status(404).json(err));
-});
+// @desc    Delete an item
+router.delete('/:id', wrap(async (req, res) => {
+  await Special.findByIdAndRemove(req.params.id);
+  res.json({ success: true });
+}));
+
+router.use(sendError);
 
 module.exports = router;
