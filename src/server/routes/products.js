@@ -1,49 +1,43 @@
 const router = require('express').Router();
 const Product = require('../models/product.model');
 const checkAuth = require('../middleware/check-auth');
+const wrap = require('../helpers/wrap');
+const sendError = require('../middleware/sendError');
 
 // @route GET api/products
 // @desc get all products
-router.route('/').get((req, res) => {
-  Product.find()
-    .then(products => res.json(products))
-    .catch(err => res.status(400).json(err));
-});
+router.get('/', wrap(async (req, res) => {
+  const products = await Product.find();
+  res.json(products);
+}));
 
 // @route GET api/products/:id
 // @desc get product by id
-router.route('/:id').get((req, res) => {
-  Product.findById(req.params.id)
-    .then(product => res.json(product))
-    .catch(err => res.status(400).json(err));
-});
+router.get('/:id', wrap(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  res.json(product);
+}));
 
 // Using the checkAuth middleware here means only routes below require authentication.
 router.use(checkAuth);
 
 // @route POST api/products/add
-// @desc add new products
-router.route('/').post((req, res) => {
+// @desc add a new product
+router.post('/', wrap(async (req, res) => {
   const { name, description, price } = req.body;
 
-  const newProduct = new Product({
-    name,
-    description,
-    price,
-  });
+  const newProduct = new Product({ name, description, price });
 
   // save new product to mongo db database
-  newProduct
-    .save()
-    .then(() => res.json(newProduct))
-    .catch(err => res.status(400).json(err));
-});
+  await newProduct.save();
+  res.json(newProduct);
+}));
 
 // @route PUT api/products/:id
 // @desc update product by id
-router.put('/:id', async (req, res) => {
+router.put('/:id', wrap(async (req, res) => {
   const productId = req.params.id;
-  const prevProduct = (await Product.find({ _id: productId }))[0];
+  const prevProduct = await Product.findOne({ _id: productId });
 
   const newDetails = {
     name: req.body.name || prevProduct.name,
@@ -51,19 +45,18 @@ router.put('/:id', async (req, res) => {
     price: req.body.price || prevProduct.price,
   };
 
-  Product.findByIdAndUpdate(productId, newDetails, (err, updatedProduct) => {
-    if (err) throw err;
-
-    res.json(updatedProduct);
-  });
-});
+  await Product.findByIdAndUpdate(productId, newDetails);
+  const updatedProduct = await Product.findOne({ _id: productId });
+  res.json(updatedProduct);
+}));
 
 // @route   DELETE api/products
 // @desc    Delete an item
-router.delete('/:id', (req, res) => {
-  Product.findById(req.params.id)
-    .then(product => product.remove().then(() => res.json({ success: true })))
-    .catch(err => res.status(404).json(err));
-});
+router.delete('/:id', wrap(async (req, res) => {
+  await Product.findByIdAndRemove(req.params.id);
+  res.json({ success: true });
+}));
+
+router.use(sendError);
 
 module.exports = router;
