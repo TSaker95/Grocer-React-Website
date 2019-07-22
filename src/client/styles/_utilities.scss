@@ -6,7 +6,6 @@
   border: none;
   cursor: pointer;
   font-size: 0.8rem;
-  margin-right: 0.5rem;
   font-weight: 600;
   outline: none;
   transition: all 0.2s ease-in;
@@ -36,6 +35,15 @@
 
     &:hover {
       background: lighten(#dc3545, 5%);
+    }
+  }
+
+  &-alt {
+    background: #40a4f4;
+    color: #fff;
+
+    &:hover {
+      background: lighten(#40a4f4, 5%);
     }
   }
 }

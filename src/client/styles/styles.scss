@@ -106,7 +106,7 @@
 // Dashboard navbar
 .dashboard-nav {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   padding: 1.5rem 0;
 
@@ -117,8 +117,16 @@
   &-links {
     display: flex;
     justify-content: space-between;
-    width: 20rem;
     font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .dash-nav-logo {
+    height: 40px;
+    width: auto;
   }
 }
 
@@ -140,6 +148,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 3em;
+  width: 1080px;
 
   .section-add-button {
     background: none;
@@ -186,7 +195,7 @@
 // Specials list
 
 .specials-container {
-  margin-top: 6rem;
+  margin-top: 4rem;
 
   .specials-headings {
 
@@ -211,7 +220,7 @@
 // Products list
 
 .products-container {
-  margin-top: 5rem;
+  margin-top: 3rem;
 
   .products-headings {
     h5:nth-child(2) {

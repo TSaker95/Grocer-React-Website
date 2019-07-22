@@ -5,7 +5,6 @@
   border: none;
   cursor: pointer;
   font-size: 0.8rem;
-  margin-right: 0.5rem;
   font-weight: 600;
   outline: none;
   -webkit-transition: all 0.2s ease-in;
@@ -39,6 +38,15 @@
 
 .btn.btn-danger:hover {
   background: #e04b59;
+}
+
+.btn-alt {
+  background: #40a4f4;
+  color: #fff;
+}
+
+.btn-alt:hover {
+  background: #58aff5;
 }
 
 * {
@@ -170,9 +178,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -190,8 +198,16 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 20rem;
   font-weight: 600;
+}
+
+.dashboard-nav-links:hover {
+  text-decoration: underline;
+}
+
+.dashboard-nav .dash-nav-logo {
+  height: 40px;
+  width: auto;
 }
 
 .icons {
@@ -218,6 +234,7 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 3em;
+  width: 1080px;
 }
 
 .section-header .section-add-button {
@@ -268,7 +285,7 @@
 }
 
 .specials-container {
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 .specials-container .specials-headings h5:first-child {
@@ -284,7 +301,7 @@
 }
 
 .products-container {
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .products-container .products-headings h5:nth-child(2) {

@@ -13,6 +13,7 @@ import Main from "./components/Main";
 import Login from "./components/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import NotFound from "./components/NotFound";
+import ProductList from "./components/dashboard/ProductList";
 
 function PrivateRoute({ component: Component, ...rest }) {
   return (
