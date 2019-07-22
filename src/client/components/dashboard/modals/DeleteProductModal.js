@@ -51,7 +51,7 @@ const DeleteProductModal = props => {
           </div>
           <p>
             Are you sure you want to delete {props.item.name} from the product
-            list? This can not be reversed.
+            list? This will delete corresponding specials.
           </p>
         </div>
         <div className="modal-footer">
