@@ -105,6 +105,7 @@ export default function Dashboard(props) {
       />
       <ProductList
         products={products ? products : []}
+        specials={specials ? specials : []}
         deleteProduct={deleteProduct}
         addProduct={addProduct}
         updateProduct={updateProduct}

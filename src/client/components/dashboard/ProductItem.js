@@ -26,14 +26,17 @@ const ProductItem = props => {
     setIsDeleteModalOpen(false);
   };
 
+  const { name, description, price } = props.item;
+
   return (
     <div className="products-item list-row">
-      <div className="product-image">
+      {/* <div className="product-image">
         <img src={placeholder} alt="placeholder" />
-      </div>
-      <p>{props.item.name}</p>
-      <p>${props.item.price}</p>
-      <p>23/02/1903</p>
+      </div> */}
+      <p>{name}</p>
+      <p>{description.substring(0, 30)}</p>
+      <p>${price}</p>
+      <p>{props.onSale ? "Yes" : "No"}</p>
       <div className="icons">
         <img src={editIcon} onClick={handleOpenEditModal} />
         <img src={deleteIcon} onClick={handleOpenDeleteModal} />

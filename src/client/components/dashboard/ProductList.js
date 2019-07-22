@@ -27,10 +27,10 @@ const ProductList = props => {
       </div>
       <div className="products-list items-list">
         <div className="headings products-headings">
-          <h5>Image</h5>
           <h5>Name</h5>
+          <h5>Description</h5>
           <h5>Price</h5>
-          <h5>Last sale</h5>
+          <h5>On sale</h5>
           <h5>Actions</h5>
         </div>
         <div className="list-content products-list-content">
@@ -41,6 +41,14 @@ const ProductList = props => {
                 key={product._id}
                 deleteProduct={props.deleteProduct}
                 updateProduct={props.updateProduct}
+                // Check the specials to see if product is currently on sale
+                onSale={
+                  props.specials.find(
+                    special => special.productId === product._id
+                  )
+                    ? true
+                    : false
+                }
               />
             ))
           ) : (
