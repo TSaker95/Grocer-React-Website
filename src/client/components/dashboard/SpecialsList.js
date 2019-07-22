@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import SpecialsItem from "./SpecialsItem";
 import NewSpecialModal from "./modals/NewSpecialModal";
+import PropTypes from "prop-types";
+import EmptyList from "./EmptyList";
 
-export default function SpecialsList(props) {
+const SpecialsList = props => {
   const [isNewspecialModalOpen, setIsNewspecialModalOpen] = useState(false);
   const handleOpenNewSpecialModal = () => {
     setIsNewspecialModalOpen(true);
@@ -17,10 +19,10 @@ export default function SpecialsList(props) {
       <div className="section-header specials-header">
         <h3>Specials ({props.specials.length})</h3>
         <button
-          className="add-special-button section-add-button"
+          className="btn btn-large btn-primary"
           onClick={handleOpenNewSpecialModal}
         >
-          Add special +
+          + Add special
         </button>
       </div>
       <div className="specials-list items-list">
@@ -42,10 +44,11 @@ export default function SpecialsList(props) {
                 })}
                 key={special._id}
                 deleteSpecial={props.deleteSpecial}
+                updateSpecial={props.updateSpecial}
               />
             ))
           ) : (
-            <p>nothing</p>
+            <EmptyList type="specials" />
           )}
         </div>
       </div>
@@ -58,4 +61,14 @@ export default function SpecialsList(props) {
       />
     </div>
   );
-}
+};
+
+SpecialsList.propTypes = {
+  addSpecial: PropTypes.func.isRequired,
+  deleteSpecial: PropTypes.func.isRequired,
+  updateSpecial: PropTypes.func.isRequired,
+  products: PropTypes.array.isRequired,
+  specials: PropTypes.array
+};
+
+export default SpecialsList;

@@ -30,28 +30,28 @@ export default function Login(props) {
   return state.isLoggedIn === "true" ? (
     <Redirect to="/dashboard" />
   ) : (
-    <div className="login-form-container">
-      <div className="login-form-content">
-        <form className="login-form form" onSubmit={submitLogin}>
-          <label htmlFor="username">
-            Username
+    <div className="login-page">
+      <div className="login-form-container">
+        <div className="login-form-content">
+          <h3>Welcome</h3>
+          <form className="login-form form" onSubmit={submitLogin}>
             <input
               name="username"
+              required
               ref={usernameRef}
               type="text"
               placeholder="Username"
             />
-          </label>
-          <input
-            name="password"
-            ref={passwordRef}
-            type="password"
-            placeholder="Password"
-          />
-          <button type="submit">Login</button>
-        </form>
-
-        <button>Close </button>
+            <input
+              name="password"
+              required
+              ref={passwordRef}
+              type="password"
+              placeholder="Password"
+            />
+            <button type="submit">Sign in</button>
+          </form>
+        </div>
       </div>
     </div>
   );
