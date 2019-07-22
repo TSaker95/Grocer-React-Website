@@ -25,11 +25,11 @@ router.use(checkAuth);
 // @desc add a new special
 router.post('/', wrap(async (req, res) => {
   const {
-    productID, startDate, endDate, salePrice,
+    productId, startDate, endDate, salePrice,
   } = req.body;
 
   const newSpecial = new Special({
-    productID, startDate, endDate, salePrice,
+    productId, startDate, endDate, salePrice,
   });
 
   // save new special to mongo db database
