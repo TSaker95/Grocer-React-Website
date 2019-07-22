@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = require('../app');
 const Product = require('../models/product.model');
 
-// May require additional time for downloading MongoDB binaries
+// May require additional time to download MongoDB binaries
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 600000;
 
 let mongoServer;
