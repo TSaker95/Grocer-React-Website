@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { state, setState } from "../AuthHandler";
+import Logo from "../../public/images/HillsdonGrocer_logo.png";
 
 export default function DashboardNavbar(props) {
   const handleLogout = () => {
@@ -12,16 +13,10 @@ export default function DashboardNavbar(props) {
 
   return (
     <nav className="dashboard-nav">
-      <h2>LOGO</h2>
+      <img className="dash-nav-logo" src={Logo} alt="Logo" />
       <div className="dashboard-nav-links">
-        <Link to="/products" className="nav-link">
-          Products
-        </Link>
-        <Link to="/specials" className="nav-link">
-          Specials
-        </Link>
         <Link to="/" className="nav-link" onClick={handleLogout}>
-          Logout
+          <button className="btn btn-alt">Logout</button>
         </Link>
       </div>
     </nav>

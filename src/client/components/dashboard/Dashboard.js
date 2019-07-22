@@ -54,6 +54,11 @@ export default function Dashboard(props) {
 
   // Delete products function
   const deleteProduct = productId => {
+    const productSpecial = specials.find(
+      special => special.productId === productId
+    );
+    api.delete(`api/specials/${productSpecial._id}`).then(res => getSpecials());
+
     api
       .delete(`api/products/${productId}`)
       .then(res => {
@@ -96,9 +101,11 @@ export default function Dashboard(props) {
         products={products ? products : []}
         addSpecial={addSpecial}
         deleteSpecial={deleteSpecial}
+        updateSpecial={updateSpecial}
       />
       <ProductList
         products={products ? products : []}
+        specials={specials ? specials : []}
         deleteProduct={deleteProduct}
         addProduct={addProduct}
         updateProduct={updateProduct}

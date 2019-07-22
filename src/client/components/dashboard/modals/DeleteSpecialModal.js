@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
+// New style definitions required for react-modal
 const styles = {
   overlay: {
     position: "fixed",
@@ -17,7 +19,7 @@ const styles = {
     border: "1px solid #ccc",
     borderTop: "6px solid #40A4F4",
     width: "500px",
-    height: "200px",
+    height: "220px",
     margin: "auto",
     top: "40px",
     left: "40px",
@@ -32,7 +34,7 @@ const styles = {
   }
 };
 
-export default function EditSpecialModal(props) {
+const DeleteSpecialModal = props => {
   return (
     <Modal
       isOpen={props.isOpen}
@@ -41,7 +43,7 @@ export default function EditSpecialModal(props) {
       shouldReturnFocusAfterClose={true}
       style={styles}
     >
-      <div className="delete-special-modal modal">
+      <div className="delete-modal modal">
         <div className="modal-content">
           <div className="modal-title">
             <h4>Delete special </h4>
@@ -66,4 +68,13 @@ export default function EditSpecialModal(props) {
       </div>
     </Modal>
   );
-}
+};
+
+DeleteSpecialModal.propTypes = {
+  item: PropTypes.object.isRequired,
+  deleteSpecial: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
+};
+
+export default DeleteSpecialModal;

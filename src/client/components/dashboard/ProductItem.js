@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import ReactModal from "react-modal";
+import PropTypes from "prop-types";
+
 import placeholder from "../../public/images/placeholder.png";
 import editIcon from "../../public/images/edit.svg";
 import deleteIcon from "../../public/images/delete.svg";
 import DeleteProductModal from "./modals/DeleteProductModal";
 import UpdateProductModal from "./modals/UpdateProductModal";
 
-export default function ProductItem(props) {
+const ProductItem = props => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const handleOpenEditModal = () => {
     setIsEditModalOpen(true);
@@ -25,14 +26,14 @@ export default function ProductItem(props) {
     setIsDeleteModalOpen(false);
   };
 
+  const { name, description, price } = props.item;
+
   return (
     <div className="products-item list-row">
-      <div className="product-image">
-        <img src={placeholder} alt="placeholder" />
-      </div>
-      <p>{props.item.name}</p>
-      <p>${props.item.price}</p>
-      <p>23/02/1903</p>
+      <p>{name}</p>
+      <p>{description.substring(0, 30)}</p>
+      <p>${price}</p>
+      <p>{props.onSale ? "Yes" : "No"}</p>
       <div className="icons">
         <img src={editIcon} onClick={handleOpenEditModal} />
         <img src={deleteIcon} onClick={handleOpenDeleteModal} />
@@ -52,4 +53,12 @@ export default function ProductItem(props) {
       />
     </div>
   );
-}
+};
+
+ProductItem.propTypes = {
+  item: PropTypes.object.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
+  updateProduct: PropTypes.func.isRequired
+};
+
+export default ProductItem;

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
 import ProductItem from "./ProductItem";
 import NewProductModal from "./modals/NewProductModal.js";
+import EmptyList from "./EmptyList";
 
-export default function ProductList(props) {
+const ProductList = props => {
   const [isNewProductModalOpen, setIsNewProductModalOpen] = useState(false);
   const handleOpenNewProductModal = () => {
     setIsNewProductModalOpen(true);
@@ -16,18 +19,18 @@ export default function ProductList(props) {
       <div className="section-header products-header">
         <h3>Products ({props.products.length})</h3>
         <button
-          className="add-product-button section-add-button"
+          className="btn btn-large btn-primary"
           onClick={handleOpenNewProductModal}
         >
-          Add product +
+          + Add product
         </button>
       </div>
       <div className="products-list items-list">
         <div className="headings products-headings">
-          <h5>Image</h5>
           <h5>Name</h5>
+          <h5>Description</h5>
           <h5>Price</h5>
-          <h5>Last sale</h5>
+          <h5>On sale</h5>
           <h5>Actions</h5>
         </div>
         <div className="list-content products-list-content">
@@ -38,10 +41,18 @@ export default function ProductList(props) {
                 key={product._id}
                 deleteProduct={props.deleteProduct}
                 updateProduct={props.updateProduct}
+                // Check the specials to see if product is currently on sale
+                onSale={
+                  props.specials.find(
+                    special => special.productId === product._id
+                  )
+                    ? true
+                    : false
+                }
               />
             ))
           ) : (
-            <p>wow</p>
+            <EmptyList type="products" />
           )}
         </div>
       </div>
@@ -53,4 +64,13 @@ export default function ProductList(props) {
       />
     </div>
   );
-}
+};
+
+ProductList.propTypes = {
+  products: PropTypes.array.isRequired,
+  addProduct: PropTypes.func.isRequired,
+  deleteProduct: PropTypes.func.isRequired,
+  updateProduct: PropTypes.func.isRequired
+};
+
+export default ProductList;

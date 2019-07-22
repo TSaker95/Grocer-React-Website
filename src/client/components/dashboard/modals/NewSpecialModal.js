@@ -1,10 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-export default function NewspecialModal(props) {
+// New style definitions required for react-modal
+const styles = {
+  overlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(255, 255, 255, 0.75)"
+  },
+  content: {
+    position: "absolute",
+    border: "1px solid #ccc",
+    borderTop: "6px solid #40A4F4",
+    width: "350px",
+    height: "480px",
+    margin: "auto",
+    top: "40px",
+    left: "40px",
+    right: "40px",
+    bottom: "40px",
+    background: "#fff",
+    overflow: "auto",
+    WebkitOverflowScrolling: "touch",
+    borderRadius: "4px",
+    outline: "none",
+    padding: "20px"
+  }
+};
+
+const NewSpecialModal = props => {
   const productRef = React.createRef();
+  const salePriceRef = React.createRef();
   const startDateRef = React.createRef();
   const endDateRef = React.createRef();
 
@@ -15,6 +47,7 @@ export default function NewspecialModal(props) {
     // Construct the special
     const special = {
       productId: productRef.current.value,
+      salePrice: salePriceRef.current.value,
       startDate: startDateRef.current.value,
       endDate: endDateRef.current.value
     };
@@ -29,26 +62,61 @@ export default function NewspecialModal(props) {
       shouldCloseOnEsc={true}
       shouldFocusAfterRender={true}
       shouldReturnFocusAfterClose={true}
+      style={styles}
     >
-      <div className="edit-special-modal modal">
-        <form className="special-edit" onSubmit={addSpecial}>
-          <label>
-            Product
-            <select name="product" required ref={productRef}>
-              {props.products.map(product => (
-                <option value={product._id} key={product._id}>
-                  {product.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <input name="start-date" ref={startDateRef} type="date" />
-          <input name="end-date" ref={endDateRef} type="date" />
-          <button type="submit">+ Add special</button>
-        </form>
+      <div className="new-item-modal">
+        <div className="new-item-title">
+          <h4>Add special</h4>
+          <p onClick={props.closeModal}>X</p>
+        </div>
+        <form onSubmit={addSpecial}>
+          <ul className="new-item-form">
+            <li>
+              <label htmlFor="">Product</label>{" "}
+              <select name="product" required ref={productRef}>
+                {props.products.map(product => (
+                  <option value={product._id} key={product._id}>
+                    {product.name}
+                  </option>
+                ))}
+              </select>
+            </li>
+            <li>
+              <label htmlFor="sale-price">Sale price</label>
+              <input
+                name="sale-price"
+                ref={salePriceRef}
+                type="number"
+                step="0.01"
+              />
+            </li>
+            <li>
+              <label htmlFor="start-date">Start date</label>
+              <input name="start-date" ref={startDateRef} type="date" />
+              <label htmlFor="end-date">End date</label>
+              <input name="end-date" ref={endDateRef} type="date" />
+            </li>
 
-        <button onClick={props.closeModal}>Close</button>
+            <li>
+              <p onClick={props.closeModal} className="cancel-modal-action">
+                Cancel
+              </p>
+              <button className="btn btn-primary" type="submit">
+                Add special
+              </button>
+            </li>
+          </ul>
+        </form>
       </div>
     </Modal>
   );
-}
+};
+
+NewSpecialModal.propTypes = {
+  products: PropTypes.array.isRequired,
+  addSpecial: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
+};
+
+export default NewSpecialModal;
