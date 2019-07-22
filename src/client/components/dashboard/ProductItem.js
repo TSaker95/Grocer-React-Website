@@ -30,9 +30,6 @@ const ProductItem = props => {
 
   return (
     <div className="products-item list-row">
-      {/* <div className="product-image">
-        <img src={placeholder} alt="placeholder" />
-      </div> */}
       <p>{name}</p>
       <p>{description.substring(0, 30)}</p>
       <p>${price}</p>
