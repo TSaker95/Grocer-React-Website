@@ -42,13 +42,9 @@ router.route("/").post((req, res) => {
 
 // @route PUT api/specials/:id
 // @desc update special by id
-<<<<<<< HEAD
-router.put('/:id', async (req, res) => {
-=======
-router.put("/:id", (req, res) => {
->>>>>>> frontend
+router.put("/:id", async (req, res) => {
   const specialId = req.params.id;
-  const previousSpecial = await (Special.find({ _id: specialId }))[0];
+  const previousSpecial = await Special.find({ _id: specialId })[0];
 
   const newDetails = {
     productId: req.body.productId || previousSpecial.productId,
