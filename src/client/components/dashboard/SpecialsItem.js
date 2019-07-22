@@ -63,4 +63,12 @@ SpecialsItem.propTypes = {
   deleteSpecial: PropTypes.func.isRequired
 };
 
+SpecialsItem.defaultProps = {
+  product: {
+    name: "No item.",
+    price: 0,
+    salePrice: 0
+  }
+};
+
 export default SpecialsItem;
