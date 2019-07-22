@@ -3,7 +3,7 @@ const app = require('./app');
 require('dotenv').config();
 
 const uri = process.env.MONGODB_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false });
 
 // Connect to database
 const { connection } = mongoose;

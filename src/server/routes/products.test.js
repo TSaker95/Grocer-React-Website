@@ -12,9 +12,13 @@ let mongoServer;
 beforeAll(async () => {
   mongoServer = new MongoMemoryServer();
   const mongoUri = await mongoServer.getConnectionString();
-  await mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
-    if (err) console.error(err);
-  });
+  await mongoose.connect(
+    mongoUri,
+    { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false },
+    (err) => {
+      if (err) console.error(err);
+    },
+  );
   await Product.insertMany([
     { name: 'Dummy', description: 'For babies', price: 3.23 },
     { name: 'Thiccend Cream', description: 'For pavlova', price: 1.99 },
@@ -122,12 +126,12 @@ describe('Product router responds correctly to valid requests', () => {
       price: 11,
     });
 
-    const productCountBeforeDelete = await Product.count();
+    const productCountBeforeDelete = await Product.countDocuments();
 
     const res = await request(app)
       .delete(`/api/products/${testProduct._id}`);
 
-    const productCountAfterDelete = await Product.count();
+    const productCountAfterDelete = await Product.countDocuments();
 
     expect(res.status).toEqual(200);
     expect(productCountBeforeDelete).toBeCloseTo(productCountAfterDelete + 1);

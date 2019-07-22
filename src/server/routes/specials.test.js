@@ -12,9 +12,13 @@ let mongoServer;
 beforeAll(async () => {
   mongoServer = new MongoMemoryServer();
   const mongoUri = await mongoServer.getConnectionString();
-  await mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
-    if (err) console.error(err);
-  });
+  await mongoose.connect(
+    mongoUri,
+    { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false },
+    (err) => {
+      if (err) console.error(err);
+    },
+  );
   await Special.insertMany([
     {
       productId: 'zyx', startDate: '2010-01-02', endDate: '2010-01-03', salePrice: 1,
@@ -129,12 +133,12 @@ describe('Special router responds correctly to valid requests', () => {
       endDate: '2012-01-03',
     });
 
-    const specialCountBeforeDelete = await Special.count();
+    const specialCountBeforeDelete = await Special.countDocuments();
 
     const res = await request(app)
       .delete(`/api/specials/${testSpecial._id}`);
 
-    const specialCountAfterDelete = await Special.count();
+    const specialCountAfterDelete = await Special.countDocuments();
 
     expect(res.status).toEqual(200);
     expect(specialCountBeforeDelete).toBeCloseTo(specialCountAfterDelete + 1);
