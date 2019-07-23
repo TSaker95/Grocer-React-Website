@@ -3,7 +3,7 @@ import Navbar from "./layout/Navbar.js";
 import Footer from "./layout/footer.js";
 import Range from "./layout/range.js";
 import Specials from "./layout/specials.js";
-import Findus from "./layout/findus.js";
+import Findus from "./layout/Findus.js";
 import Hgimage from "./layout/hgimage.js";
 import "../styles/homepage.css";
 
