@@ -24,9 +24,6 @@ app.use('/api/specials', specialsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
 
-// Dummy route for databaseless testing
-app.get('/api/getMessage', (req, res) => res.send({ message: 'Dummy thicc' }));
-
 // If no route matches, send the react app and let it deal with the request using react-router
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
