@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "./layout/Navbar.js";
 import Footer from "./layout/footer.js";
-import Range from "./layout/range.js";
-import Specials from "./layout/specials.js";
+import Range from "./layout/Range.js";
+import Specials from "./layout/Specials.js";
 import Findus from "./layout/Findus.js";
-import Hgimage from "./layout/hgimage.js";
+import Hgimage from "./layout/Hgimage.js";
 import "../styles/homepage.css";
 
 export default function Main() {
