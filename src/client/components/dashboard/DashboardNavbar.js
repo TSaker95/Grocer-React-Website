@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { state, setState } from "../AuthHandler";
-import Logo from "../../public/images/HillsdonGrocer_logo.png";
+import Logo from "../../public/images/hillsdongrocer_logo.png";
 
 export default function DashboardNavbar(props) {
   const handleLogout = () => {
