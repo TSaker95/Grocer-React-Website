@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const request = require('supertest');
-const jwt = require('jsonwebtoken');
 const app = require('../app');
 const User = require('../models/user.model');
 
 // May require additional time to download MongoDB binaries
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 600000;
 
-const username = 'admin';
 let mongoServer;
 
 beforeAll(async () => {
