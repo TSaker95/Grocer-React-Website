@@ -1,15 +1,23 @@
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const request = require('supertest');
+const jwt = require('jsonwebtoken');
 const app = require('../app');
 const Product = require('../models/product.model');
 
 // May require additional time to download MongoDB binaries
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 600000;
 
+const username = 'admin';
+let validToken;
 let mongoServer;
 
 beforeAll(async () => {
+  const payload = { username };
+  validToken = jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: '72h',
+  });
+
   mongoServer = new MongoMemoryServer();
   const mongoUri = await mongoServer.getConnectionString();
   await mongoose.connect(
@@ -19,6 +27,7 @@ beforeAll(async () => {
       if (err) console.error(err);
     },
   );
+
   await Product.insertMany([
     { name: 'Dummy', description: 'For babies', price: 3.23 },
     { name: 'Thiccend Cream', description: 'For pavlova', price: 1.99 },
@@ -62,6 +71,7 @@ describe('Product router responds correctly to valid requests', () => {
 
     const res = await request(app)
       .post('/api/products/')
+      .set('Cookie', `token=${validToken}`)
       .send(newProduct)
       .set('Accept', 'application/json');
 
@@ -84,6 +94,7 @@ describe('Product router responds correctly to valid requests', () => {
 
     const res = await request(app)
       .put(`/api/products/${testProduct._id}`)
+      .set('Cookie', `token=${validToken}`)
       .send(newDetails)
       .set('Accept', 'application/json');
 
@@ -107,6 +118,7 @@ describe('Product router responds correctly to valid requests', () => {
 
     const res = await request(app)
       .put(`/api/products/${testProduct._id}`)
+      .set('Cookie', `token=${validToken}`)
       .send(newDetails)
       .set('Accept', 'application/json');
 
@@ -129,7 +141,8 @@ describe('Product router responds correctly to valid requests', () => {
     const productCountBeforeDelete = await Product.countDocuments();
 
     const res = await request(app)
-      .delete(`/api/products/${testProduct._id}`);
+      .delete(`/api/products/${testProduct._id}`)
+      .set('Cookie', `token=${validToken}`);
 
     const productCountAfterDelete = await Product.countDocuments();
 

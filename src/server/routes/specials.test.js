@@ -1,15 +1,23 @@
 const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const request = require('supertest');
+const jwt = require('jsonwebtoken');
 const app = require('../app');
 const Special = require('../models/special.model');
 
 // May require additional time to download MongoDB binaries
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 600000;
 
+const username = 'admin';
+let validToken;
 let mongoServer;
 
 beforeAll(async () => {
+  const payload = { username };
+  validToken = jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: '72h',
+  });
+
   mongoServer = new MongoMemoryServer();
   const mongoUri = await mongoServer.getConnectionString();
   await mongoose.connect(
@@ -19,6 +27,7 @@ beforeAll(async () => {
       if (err) console.error(err);
     },
   );
+
   await Special.insertMany([
     {
       productId: 'zyx', startDate: '2010-01-02', endDate: '2010-01-03', salePrice: 1,
@@ -67,6 +76,7 @@ describe('Special router responds correctly to valid requests', () => {
 
     const res = await request(app)
       .post('/api/specials/')
+      .set('Cookie', `token=${validToken}`)
       .send(newSpecial)
       .set('Accept', 'application/json');
 
@@ -92,6 +102,7 @@ describe('Special router responds correctly to valid requests', () => {
 
     const res = await request(app)
       .put(`/api/specials/${testSpecial._id}`)
+      .set('Cookie', `token=${validToken}`)
       .send(newDetails)
       .set('Accept', 'application/json');
 
@@ -115,6 +126,7 @@ describe('Special router responds correctly to valid requests', () => {
 
     const res = await request(app)
       .put(`/api/specials/${testSpecial._id}`)
+      .set('Cookie', `token=${validToken}`)
       .send(newDetails)
       .set('Accept', 'application/json');
 
@@ -136,7 +148,8 @@ describe('Special router responds correctly to valid requests', () => {
     const specialCountBeforeDelete = await Special.countDocuments();
 
     const res = await request(app)
-      .delete(`/api/specials/${testSpecial._id}`);
+      .delete(`/api/specials/${testSpecial._id}`)
+      .set('Cookie', `token=${validToken}`);
 
     const specialCountAfterDelete = await Special.countDocuments();
 

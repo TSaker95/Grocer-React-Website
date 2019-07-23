@@ -19,8 +19,4 @@ const checkAuth = (req, res, next) => {
   }
 };
 
-if (process.env.NODE_ENV !== 'test') {
-  module.exports = checkAuth;
-} else {
-  module.exports = (req, res, next) => { next(); };
-}
+module.exports = checkAuth;
