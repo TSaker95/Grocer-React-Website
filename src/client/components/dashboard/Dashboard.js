@@ -54,10 +54,16 @@ export default function Dashboard(props) {
 
   // Delete products function
   const deleteProduct = productId => {
-    const productSpecial = specials.find(
+    // First delete any specials for the product
+    const productSpecial = specials.filter(
       special => special.productId === productId
     );
-    api.delete(`api/specials/${productSpecial._id}`).then(res => getSpecials());
+
+    if (productSpecial) {
+      productSpecial.forEach(special => {
+        api.delete(`api/specials/${special._id}`).then(res => getSpecials());
+      });
+    }
 
     api
       .delete(`api/products/${productId}`)
