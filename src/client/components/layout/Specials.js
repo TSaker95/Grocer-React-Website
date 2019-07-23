@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Specialdisplay from "./specialdisplay";
+import { api } from "../../api";
 
 export default function Specials() {
+  const [specials, setSpecials] = useState([]);
+
+  useEffect(() => {
+    api
+      .get("/api/specials")
+      .then(res => setSpecials([...res.data]))
+      .catch(err => console.log(`Error: ${err}`));
+  }, []);
+
   return (
     <div>
       <div className="hpsectiond">
