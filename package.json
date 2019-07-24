@@ -1,7 +1,7 @@
 {
-  "name": "simple-react-full-stack",
+  "name": "hillsdon-mern",
   "version": "1.0.0",
-  "description": "Boilerplate to build a full stack web application using React, Node.js, Express and Webpack.",
+  "description": "A simple MERN app, built for assessment by Coder Academy in Australia.",
   "main": "src/server/index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -11,8 +11,13 @@
     "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "test": "jest"
   },
-  "author": "Sandeep Raveesh",
-  "license": "ISC",
+  "contributors": [
+    "Rhys Geary",
+    "Matthew Puku",
+    "Sandeep Ravesh",
+    "Torryn Saker"
+  ],
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",
