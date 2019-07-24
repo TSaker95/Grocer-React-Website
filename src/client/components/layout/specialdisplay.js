@@ -2,8 +2,8 @@ import React from "react";
 import { api } from "../../api";
 
 export default function specialdisplay(props) {
-  console.log(props);
-  return (
-    <div style={{ color: "#fff", height: "100px" }}>{props.product.name}</div>
-  );
+  const { salePrice, startDate, endDate } = props.special;
+  const { name, price } = props.product;
+  // console.log(salePrice, startDate, endDate, name, price);
+  return <div style={{ color: "#fff" }}>{name}</div>;
 }

@@ -25,7 +25,10 @@ export default function Specials() {
         <h1> Specials </h1>
         {products.length ? (
           specials.map(special => (
-            <Specialdisplay product={findProduct(special.productId)} />
+            <Specialdisplay
+              product={findProduct(special.productId)}
+              special={special}
+            />
           ))
         ) : (
           <p>None</p>
