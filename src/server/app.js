@@ -1,3 +1,6 @@
+// This file sets up the Express app, which powers the backend. It is the best place to start
+// reading if one wishes to understand the way the backend is set up and routed.
+
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
@@ -10,10 +13,9 @@ const app = express();
 app.use(cors({ credentials: true, origin: true }));
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.json());
-
-// Route definitions
 app.use(express.static('dist'));
 
+// Route definitions
 const productsRouter = require('./routes/products');
 const specialsRouter = require('./routes/specials');
 const usersRouter = require('./routes/users');
@@ -24,10 +26,7 @@ app.use('/api/specials', specialsRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
 
-// Dummy route for databaseless testing
-app.get('/api/getMessage', (req, res) => res.send({ message: 'Dummy thicc' }));
-
-// If no route matches, send the react app and let it deal with the request using react-router
+// If no API route matches, send the react app. It will handle the request with react-router.
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../dist', 'index.html'));
 });

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
-Modal.defaultStyles = {
+// New style definitions required for react-modal
+const styles = {
   overlay: {
     position: "fixed",
     top: 0,
@@ -16,8 +18,8 @@ Modal.defaultStyles = {
     position: "absolute",
     border: "1px solid #ccc",
     borderTop: "6px solid #40A4F4",
-    width: "500px",
-    height: "200px",
+    width: "350px",
+    height: "430px",
     margin: "auto",
     top: "40px",
     left: "40px",
@@ -28,11 +30,11 @@ Modal.defaultStyles = {
     WebkitOverflowScrolling: "touch",
     borderRadius: "4px",
     outline: "none",
-    padding: "0"
+    padding: "20px"
   }
 };
 
-export default function EditProductModal(props) {
+const UpdateProductModal = props => {
   const nameRef = React.createRef();
   const priceRef = React.createRef();
   const descRef = React.createRef();
@@ -60,31 +62,62 @@ export default function EditProductModal(props) {
       shouldCloseOnEsc={true}
       shouldFocusAfterRender={true}
       shouldReturnFocusAfterClose={true}
+      style={styles}
     >
-      <div className="edit-product-modal modal">
-        <h4>{props.item.name}</h4>
-        <form className="product-edit form" onSubmit={updateProduct}>
-          <label>
-            Product name
-            <input
-              name="name"
-              ref={nameRef}
-              type="text"
-              placeholder={props.item.name}
-            />
-          </label>
-          <input name="price" ref={priceRef} type="text" placeholder="Price" />
-          <textarea
-            name="description"
-            ref={descRef}
-            type="text"
-            placeholder={props.item.description}
-          />
-          <button type="submit">Update product</button>
+      <div className="new-item-modal">
+        <div className="new-item-title add-item-title">
+          <h4>Update {props.item.name}</h4>
+          <p onClick={props.closeModal}>X</p>
+        </div>
+        <form onSubmit={updateProduct}>
+          <ul className="new-item-form">
+            <li>
+              <label htmlFor="name">Product name</label>
+              <input
+                name="name"
+                ref={nameRef}
+                type="text"
+                placeholder={props.item.name}
+              />
+            </li>
+            <li>
+              <label htmlFor="price">Price</label>
+              <input
+                name="price"
+                ref={priceRef}
+                type="text"
+                placeholder="Price"
+              />
+            </li>
+            <li>
+              <label htmlFor="desc">Description</label>
+              <textarea
+                name="desc"
+                ref={descRef}
+                type="text"
+                placeholder={props.item.description}
+              />
+            </li>
+            <li>
+              <p onClick={props.closeModal} className="cancel-modal-action">
+                Cancel
+              </p>
+              <button className="btn btn-primary" type="submit">
+                Update product
+              </button>
+            </li>
+          </ul>
         </form>
-
-        <button onClick={props.closeModal}>Close {props.item.name}</button>
       </div>
     </Modal>
   );
-}
+};
+
+UpdateProductModal.propTypes = {
+  item: PropTypes.object.isRequired,
+  updateProduct: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
+};
+
+export default UpdateProductModal;
