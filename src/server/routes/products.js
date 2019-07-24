@@ -25,10 +25,8 @@ router.use(checkAuth);
 // @desc add a new product
 router.post('/', wrap(async (req, res) => {
   const { name, description, price } = req.body;
-
   const newProduct = new Product({ name, description, price });
 
-  // save new product to mongo db database
   await newProduct.save();
   res.json(newProduct);
 }));

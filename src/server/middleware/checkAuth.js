@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+// Searches the request for a valid JWT and stops the response if missing or invalid.
 const checkAuth = (req, res, next) => {
   const token = req.body.token
     || req.query.token

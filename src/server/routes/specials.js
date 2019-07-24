@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 const router = require('express').Router();
 const Special = require('../models/special.model');
 const checkAuth = require('../middleware/checkAuth');
@@ -24,15 +25,9 @@ router.use(checkAuth);
 // @route POST api/specials/add
 // @desc add a new special
 router.post('/', wrap(async (req, res) => {
-  const {
-    productId, startDate, endDate, salePrice,
-  } = req.body;
+  const { productId, startDate, endDate, salePrice } = req.body;
+  const newSpecial = new Special({ productId, startDate, endDate, salePrice });
 
-  const newSpecial = new Special({
-    productId, startDate, endDate, salePrice,
-  });
-
-  // save new special to mongo db database
   await newSpecial.save();
   res.json(newSpecial);
 }));
