@@ -20,7 +20,7 @@ export default function Specials() {
   };
 
   return (
-    <div>
+    <div style={{ display: specials.length ? "" : "none" }}>
       <div className="hpsectiond">
         <h1> Specials </h1>
         {products.length ? (
