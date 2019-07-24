@@ -1,30 +1,24 @@
-## Use instructions
+## Setup
+
+### Prerequisites
+
+- Node.js
+- Yarn (or NPM)
+- A mongo database
+
+### Configuration
 
 - Download or clone this repo to your local machine
-- yarn install
-- yarn dev (to run app in development mode)
-- yarn build (to build files for production mode)
-- yarn start (to run app in production mode)
+- Run `yarn install`
+- Create a file called .env in the root directory of the repo and populate like so:
+- `MONGODB_URI="mongodb://something/something"` -- the connection string for your mongo database
+- `JWT_SECRET="something"` -- the secret used to encrypt and decrypt JWT for auth purposes
+- `API_ENDPOINT="localhost:4000/"` -- the url the backend will be live at
+
+### Running the app
+
+- `yarn dev` to run app in development mode with hot reloading for front and backend
+- `yarn build` to build files as in production mode
+- `yarn start` to run app as in production mode
 
 In dev mode, the frontend will run on localhost:3000 and the backend on localhost:4000. In production, the backend will serve the prebuilt frontend to the browser, so go to localhost:4000 to see the results.
-
-## Problem definition and solution
-
-Hillsdon Grocer currently has a simple, static website. While this fulfills most of their needs, they would like something more dynamic allowing them to better publicise products on sale. Ideally, they would like to be able to fill out a title, description and sale price and have it automatically displayed on their website.
-
-Our solution to this is to create a login portal which then leads them to a dashboard showing current specials as well as ways to create, edit and delete specials. Once saved the current specials will be rendered on their website.
-
-The client side of the website will be built in React using create-react-app. The backend will use Node.JS, Express and data will be stored in a Mongo database.
-
-## Users
-
-- Store owners
-- Website visitors/potential customers
-
-## Dataflow diagram
-
-## Project plan and effort estimation
-
-Must have
-Desirable
-Optional
