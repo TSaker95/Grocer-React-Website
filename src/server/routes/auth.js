@@ -6,7 +6,7 @@ const wrap = require('../helpers/wrap');
 const sendError = require('../middleware/sendError');
 
 // @route POST api/auth/login
-// @desc checks given username and password. Signs jwt token if correct
+// @desc checks given username and password. If correct, sends JWT as a cookie.
 router.post('/login', wrap(async (req, res) => {
   const { username, password } = req.body;
   const userArray = await User.find({ username });
@@ -30,7 +30,7 @@ router.post('/login', wrap(async (req, res) => {
 }));
 
 // @route GET api/auth/check
-// @desc checks jwt token, sends a 200 if valid or a 401 if token invalid or missing.
+// @desc checks jwt token. If present and valid, sends a 200, otherwise sends 401.
 router.get('/check', checkAuth, wrap(async (req, res) => res.sendStatus(200)));
 
 router.use(sendError);

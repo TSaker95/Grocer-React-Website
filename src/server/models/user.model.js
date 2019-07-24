@@ -6,9 +6,9 @@ const UserSchema = new mongoose.Schema({
   password: { type: String, required: true },
 });
 
+// Hash password before it enters the database
 UserSchema.pre('save', function hash(next) {
   if (this.isNew || this.isModified('password')) {
-    // Saving reference to this because of changing scopes
     const document = this;
     bcrypt.hash(document.password, 10, (err, hashedPassword) => {
       if (err) {
@@ -23,6 +23,7 @@ UserSchema.pre('save', function hash(next) {
   }
 });
 
+// Checks password matches the hash stored in the DB and passes the result to the callback.
 UserSchema.methods.checkPassword = function checkPassword(password, callback) {
   bcrypt.compare(password, this.password, (err, same) => {
     if (err) {
