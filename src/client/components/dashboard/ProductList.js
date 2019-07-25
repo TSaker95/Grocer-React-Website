@@ -34,6 +34,7 @@ const ProductList = props => {
           <h5>Actions</h5>
         </div>
         <div className="list-content products-list-content">
+          {/* Conditionally render if there is or isn't products */}
           {props.products.length ? (
             props.products.map(product => (
               <ProductItem
