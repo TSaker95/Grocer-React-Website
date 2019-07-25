@@ -261,7 +261,6 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #d3d0d0;
 }
 
 @media only screen and (max-width: 700px) {
