@@ -1,270 +1,339 @@
 // Home Page Styles:
 
 .navlogo {
-    display: flex;
-    flex: wrap;
-    max-width: 100%;
-    height: auto;
-    justify-content: center;
-    padding: 1%;
+  display: flex;
+  flex: wrap;
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  padding: 1%;
 
-    &:hover {
-        transform: scale(1.01);
-        opacity: 1000;
-        box-shadow: 10px 10px 100px rgb(255, 255, 255);
-        overflow: hidden;
-    }
+  &:hover {
+    transform: scale(1.01);
+    opacity: 1000;
+    box-shadow: 10px 10px 100px rgb(255, 255, 255);
+    overflow: hidden;
+  }
 }
 
 .nav1 {
-    display: flex;
-    flex: wrap;
-    justify-content: space-between;
-    padding: 1%;
-    border: rgb(233, 229, 229); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    font-size: 2rem;
-    background-color: #333;
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+  padding: 1%;
+  border: rgb(233, 229, 229); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  font-size: 2rem;
+  background-color: #333;
 }
 
 .navtext {
-    border: rgb(252, 252, 252); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    padding: 0% 2% 0% 2%;
-    text-align: center;
-    background-color: rgba(2, 2, 2, 0.37);
+  border: rgb(252, 252, 252); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  padding: 0% 2% 0% 2%;
+  text-align: center;
+  background-color: rgba(2, 2, 2, 0.37);
 
-    p {
-        color: white;
-    }
+  p {
+    color: white;
+  }
 
-    &:hover {
-        transform: scale(1.01);
-        opacity: 1000;
-        box-shadow: 10px 10px 100px rgb(255, 255, 255);
-        overflow: hidden;
-    }
+  &:hover {
+    transform: scale(1.01);
+    opacity: 1000;
+    box-shadow: 10px 10px 100px rgb(255, 255, 255);
+    overflow: hidden;
+  }
 }
 
 .pagemargin {
-    //This controls the margin of the entire homepage
-    margin: 0% 10% 0% 10%;
-    background-color: rgb(255, 255, 255);
-    border: black; //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
+  //This controls the margin of the entire homepage
+  margin: 0% 10% 0% 10%;
+  background-color: rgb(255, 255, 255);
+  border: black; //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
 }
 
 .hpsection {
-    display: flex;
-    flex: wrap;
-    justify-content: center;
-    margin: 0%;
-    border: rgb(233, 229, 229);
-    border-style: solid;
-    border-width: 1px;
-    padding: 1%;
-    width: 100%;
+  display: flex;
+  flex: wrap;
+  justify-content: center;
+  margin: 0%;
+  border: rgb(233, 229, 229);
+  border-style: solid;
+  border-width: 1px;
+  padding: 1%;
+  width: 100%;
+}
+
+.specialcontent {
+  display: flex;
+  flex: wrap;
+  background-color: rgb(255, 255, 255);
+
+  //   width: 33%;
+  p {
+    color: black;
+  }
+}
+.specialcontentbox {
+  justify-content: center;
+  margin: 0%;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 33%;
+  height: 100%;
+}
+
+.specialcontentlist {
+  justify-content: center;
+  border: gold;
+  border-style: dotted;
+
+  margin: 1%;
+  text-align: center;
+  //   padding-left: 15%;
+  padding: 2% 2% 2% 2%;
+  float: left;
+  //   width: 25%;
+  //   height: 100%;
+  font-style: italic;
+  font-family: sans-serif;
+  width: 100%;
+
+  &:hover {
+    transform: scale(1.01);
+    opacity: 1000;
+    box-shadow: 10px 10px 100px rgb(252, 206, 0);
+    overflow: hidden;
+  }
 }
 
 .hpsectiond {
-    display: flex;
-    flex: wrap;
-    justify-content: center;
-    margin: 0%;
-    border: rgb(233, 229, 229);
-    border-style: solid;
-    border-width: 1px;
-    padding: 1%;
-    background-color: rgb(255, 255, 255);
-    width: 100%;
-    text-align: center;
-    background-color: #333;
+  display: flex;
+  flex: wrap;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0%;
+  border: rgb(233, 229, 229);
+  border-style: solid;
+  border-width: 1px;
+  padding: 1%;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  text-align: center;
+  background-color: #333;
 
-    &:hover {
-        transform: scale(1.01);
-        opacity: 1000;
-        box-shadow: 10px 10px 100px rgb(255, 255, 255);
-        overflow: hidden;
-    }
+  &:hover {
+    transform: scale(1.01);
+    opacity: 1000;
+    box-shadow: 10px 10px 100px rgb(255, 255, 255);
+    overflow: hidden;
+  }
 
-    h1 {
-        color: white;
-    }
+  h1 {
+    color: white;
+  }
 }
 
 .SectionA {
-    justify-content: center;
-    margin: 0%;
-    border: rgba(233,
-            229,
-            229,
-            0.753); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    text-align: center;
-    float: left;
-    width: 50%;
-    height: 100%;
+  justify-content: center;
+  margin: 0%;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 50%;
+  height: 100%;
 }
 
 .SectionAtext {
-    padding: 2% 2% 2% 10%;
-    text-align: left;
+  padding: 2% 2% 2% 10%;
+  text-align: left;
 }
 
 .SectionBtext {
-    padding: 0%;
-    text-align: left;
+  padding: 0%;
+  text-align: left;
 }
 
 .h2-1 {
-    text-align: left;
+  text-align: left;
 }
 
 .SectionAlist {
-    justify-content: center;
-    margin: 0%;
-    border: rgba(233,
-            229,
-            229,
-            0.753); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    text-align: left;
-    padding-left: 15%;
-    padding: 2% 2% 2% 10%;
-    float: left;
-    width: 50%;
-    height: 100%;
+  justify-content: center;
+  margin: 0%;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: left;
+  padding-left: 15%;
+  padding: 2% 2% 2% 10%;
+  float: left;
+  width: 50%;
+  height: 100%;
 }
 
 .SectionAimg {
-    justify-content: center;
-    border: rgba(233,
-            229,
-            229,
-            0.753); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    text-align: center;
-    float: left;
-    width: 25%;
+  justify-content: center;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 25%;
 }
 
 .SectionBimg {
-    justify-content: center;
-    border: rgba(233,
-            229,
-            229,
-            0.753); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    text-align: center;
-    float: left;
-    width: 33.33%;
+  justify-content: center;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 33.33%;
 }
 
 .footertext {
-    border: rgb(233, 233, 233); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    padding: 2%;
-    text-align: center;
-    font-size: 1rem;
-    background-color: rgba(2, 2, 2, 0.37);
+  border: rgb(233, 233, 233); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  padding: 2%;
+  text-align: center;
+  font-size: 1rem;
+  background-color: rgba(2, 2, 2, 0.37);
 
-    p {
-        color: white;
-    }
+  p {
+    color: white;
+  }
 }
 
 .foot1 {
-    display: flex;
-    flex: wrap;
-    justify-content: space-between;
-    padding: 1%;
-    border: rgba(233,
-            229,
-            229,
-            0.753); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    background-color: #333;
+  display: flex;
+  flex: wrap;
+  justify-content: space-between;
+  padding: 1%;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  background-color: #333;
 }
 
 .footlogo {
-    display: flex;
-    flex: wrap;
-    max-width: 100%;
-    height: auto;
-    justify-content: center;
-    padding: 1%;
+  display: flex;
+  flex: wrap;
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  padding: 1%;
 
-    &:hover {
-        transform: scale(1.01);
-        opacity: 1000;
-        box-shadow: 10px 10px 100px rgb(255, 255, 255);
-        overflow: hidden;
-    }
+  &:hover {
+    transform: scale(1.01);
+    opacity: 1000;
+    box-shadow: 10px 10px 100px rgb(255, 255, 255);
+    overflow: hidden;
+  }
 }
 
 .footerstuff {
-    justify-content: center;
-    border: rgba(233,
-            229,
-            229,
-            0.753); //borders are for the purpose of building and development, showing where the component is.
-    border-style: solid;
-    border-width: 1px;
-    text-align: center;
-    float: left;
-    width: 33.3%;
-    font-size: 1rem;
-    margin: 1%;
+  justify-content: center;
+  border: rgba(
+    233,
+    229,
+    229,
+    0.753
+  ); //borders are for the purpose of building and development, showing where the component is.
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  float: left;
+  width: 33.3%;
+  font-size: 1rem;
+  margin: 1%;
 }
 
 html {
-    scroll-behavior: smooth;
-    // background-color: rgb(211, 208, 208);
+  scroll-behavior: smooth;
+  // background-color: rgb(211, 208, 208);
 }
 
 @media only screen and (max-width: 700px) {
+  // This thing makes it scale able to mobile use, atm it seems fine with just this setting as it looks ok on laptops and ipad sized screens!
+  .nav1 {
+    font-size: 1rem;
+  }
 
-    // This thing makes it scale able to mobile use, atm it seems fine with just this setting as it looks ok on laptops and ipad sized screens!
-    .nav1 {
-        font-size: 1rem;
-    }
+  .pagemargin {
+    margin: 0%;
+  }
 
-    .pagemargin {
-        margin: 0%;
-    }
+  .footertext {
+    font-size: 0.5rem;
+  }
 
-    .footertext {
-        font-size: 0.5rem;
-    }
+  .footerstuff {
+    font-size: 0.5rem;
+  }
 
-    .footerstuff {
-        font-size: 0.5rem;
-    }
+  .SectionA {
+    width: 100%;
+  }
 
-    .SectionA {
-        width: 100%;
-    }
+  .SectionAimg {
+    width: 50%;
+  }
 
-    .SectionAimg {
-        width: 50%;
-    }
+  .SectionBimg {
+    width: 50%;
+  }
 
-    .SectionBimg {
-        width: 50%;
-    }
+  // Not sure why this would change the color here, i dont recall adding it.
 
-    .hpsectiond {
-        background-color: rgba(233, 229, 229, 0.753);
-    }
+  //   .hpsectiond {
+  //     background-color: rgba(233, 229, 229, 0.753);
+  //   }
+
+  .specialcontentlist {
+    font-size: 0.5rem;
+  }
 }
 
 // .imglogo
