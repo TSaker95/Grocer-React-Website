@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const User = require('../models/user.model');
+const checkAuth = require('../middleware/checkAuth');
 const wrap = require('../helpers/wrap');
 const sendError = require('../middleware/sendError');
+
+router.use(checkAuth);
 
 // @route POST api/users
 // @desc add new users

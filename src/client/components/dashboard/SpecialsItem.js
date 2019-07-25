@@ -25,6 +25,7 @@ const SpecialsItem = props => {
     setIsDeleteModalOpen(false);
   };
 
+  // Removes the UTC datetime from the date
   const parseDate = date => date.split("T")[0];
 
   return (

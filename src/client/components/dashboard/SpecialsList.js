@@ -35,6 +35,7 @@ const SpecialsList = props => {
           <h5>Actions</h5>
         </div>
         <div className="list-content specials-list-content">
+          {/* Conditionally render if there is or isn't specials */}
           {props.specials.length ? (
             props.specials.map(special => (
               <SpecialsItem

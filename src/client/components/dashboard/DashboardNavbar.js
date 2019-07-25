@@ -7,7 +7,6 @@ export default function DashboardNavbar(props) {
   const handleLogout = () => {
     localStorage.setItem("isLoggedIn", false);
     setState({ isLoggedIn: localStorage.getItem("isLoggedIn") });
-    // props.props.history.push("/login");
     <Redirect to="/login" />;
   };
 
