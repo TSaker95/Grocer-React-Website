@@ -12,7 +12,10 @@ export default function Specials() {
       .then(res => setSpecials([...res.data]))
       .catch(err => console.log(`Error: ${err}`));
 
-    api.get("/api/products").then(res => setProducts([...res.data]));
+    api
+      .get("/api/products")
+      .then(res => setProducts([...res.data]))
+      .catch(err => console.log(err));
   }, []);
 
   const findProduct = productId => {
@@ -20,19 +23,23 @@ export default function Specials() {
   };
 
   return (
-    <div style={{ display: specials.length ? "" : "none" }}>
+    <div>
       <div className="hpsectiond">
         <h1> Specials </h1>
-        {products.length ? (
-          specials.map(special => (
-            <Specialdisplay
-              product={findProduct(special.productId)}
-              special={special}
-            />
-          ))
-        ) : (
-          <p>None</p>
-        )}
+      </div>
+      <div style={{ display: specials.length ? "" : "none" }}>
+        <div>
+          {products.length ? (
+            specials.map(special => (
+              <Specialdisplay
+                product={findProduct(special.productId)}
+                special={special}
+              />
+            ))
+          ) : (
+            <p>None</p>
+          )}
+        </div>
       </div>
     </div>
   );
